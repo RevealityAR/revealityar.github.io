@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://reveality.io/sitemap.xml
+Host: https://reveality.io
