@@ -16,7 +16,7 @@ module.exports = {
 
   socialLinks: {
     twitter: '//twitter.com/revealityAR/',
-    facebook: '',
+    facebook: '//facebook.com/revealityAR/',
     linkedin: '//linkedin.com/company/reveality/',
     github: '',
     instagram: '//instagram.com/revealityAR/',
