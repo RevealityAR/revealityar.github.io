@@ -151,6 +151,7 @@ module.exports = {
 
     `gatsby-plugin-emotion`,
 
+    // TODO: still used?
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
