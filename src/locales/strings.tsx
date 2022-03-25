@@ -75,8 +75,8 @@ export const indexPageStrings = stringBuilderEnFr([
     `Découvre une nouvelle façon de t'exprimer. Filme le monde autour de toi et joue avec. L'écran a disparu, tes créations vivent dans le monde réel !`
   ),
   StringEnFr('joinBetaRev', 
-  'Join the bêta on Android and iPhone',
-  'Rejoins la bêta sur Android et iPhone'),
+  'Join the beta on Android and iPhone',
+  'Rejoins la beta sur Android et iPhone'),
   StringEnFr('The App', 'The App', "L'appli"),
   StringEnFr(
     'To create in AR, you need...',
@@ -103,7 +103,7 @@ export const indexPageStrings = stringBuilderEnFr([
   StringEnFr('Try it out!', 'Try it out!', 'Essayez !'),
   StringEnFr('yourPhone', 'a phone.', 'un smartphone.'),
 
-  StringEnFr('Join the beta', 'Join the bêta', 'Rejoindre la bêta'),
+  StringEnFr('Join the beta', 'Join the beta', 'Rejoindre la beta'),
   StringEnFr('joinStudio', 'Keep me in touch', 'Tenez moi au courant'),
 
   StringEnFr(
