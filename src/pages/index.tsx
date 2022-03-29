@@ -28,9 +28,13 @@ import Slider from 'react-slick';
 import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
 import { breakpointKey } from './../components/styles';
 import demoVideo from './mixVitrine.webm';
+import demoVideoFallback from './mixVitrine.mp4';
 import subjectRaw from './subjectRAW.webm';
 import subjectAlpha from './subjectALPHA.webm';
 import subjectMix from './subjectMIX.webm';
+import subjectRawFallback from './subjectRAW.mp4';
+import subjectAlphaFallback from './subjectALPHA.mp4';
+import subjectMixFallback from './subjectMIX.mp4';
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
 import RevealityFooter from './../bits/RealFooter/Footer';
 const MAILCHIMP_URL =
@@ -456,7 +460,8 @@ export default function Index({ data, pageContext: { langCode }, location }) {
               loop
               style={{ borderRadius: '20px', height: '70vh' }}
             >
-              <source src={demoVideo} type="video/mp4" />
+              <source src={demoVideo} type="video/webm" />
+              <source src={demoVideoFallback} type="video/mp4" />
             </video>
           </div>
         </div>
@@ -493,6 +498,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
 
             <video autoPlay muted loop css={subjectVideoCSS}>
               <source src={subjectRaw} type="video/webm" />
+              <source src={subjectRawFallback} type="video/mp4" />
             </video>
           </div>
           <div
@@ -505,6 +511,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             <h3 css={subjectTitleCSS}>{LOCAL['weProcess']}</h3>
             <video autoPlay muted loop css={subjectVideoCSS}>
               <source src={subjectAlpha} type="video/webm" />
+              <source src={subjectAlphaFallback} type="video/mp4" />
             </video>
           </div>
 
@@ -518,6 +525,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             <h3 css={subjectTitleCSS}>{LOCAL['reproject']}</h3>
             <video autoPlay muted loop css={subjectVideoCSS}>
               <source src={subjectMix} type="video/webm" />
+              <source src={subjectMixFallback} type="video/mp4" />
             </video>
           </div>
         </div>

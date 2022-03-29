@@ -71,6 +71,10 @@ export default function SubscriptionConfirmed({
           height="904px"
           style={{ background: 'transparent', border: '1px solid #ccc' }}
         ></iframe>
+        <div css={{padding: '1rem'}}>
+        <Link to='https://airtable.com/shrzx2UHeHLxztADT'>{LOCAL['formProblemFallback']}</Link>
+        </div>
+        
 
         {/* <Link to="/" css={buttonCSS}>
           {LOCAL['goBackHome']}
