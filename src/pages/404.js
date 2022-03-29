@@ -9,7 +9,6 @@ export default function NotFoundPage({ data, pageContext: { langCode } }) {
   return (
     <>
       <div className="CssGridNavContentFooter">
-       
         <div className="gridContent styleContent">
           <div
             style={{

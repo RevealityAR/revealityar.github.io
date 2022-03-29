@@ -5,10 +5,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import MainLayout from '../layout/MainLayout';
 import SEO from '../bits/SEO/SEO';
 import { subscribedPageStrings } from '../locales/strings';
-
-
+import { useState } from 'react';
 import { breakpointKey } from '../components/styles';
-
+import Cookies from 'universal-cookie';
 
 const buttonCSS: CSSObject = {
   backgroundColor: '#649DE5',
@@ -41,23 +40,41 @@ const containerCSS: CSSObject = {
 };
 const titleCSS: CSSObject = {
   fontSize: '2em',
-  color: '#34393A'
+  color: '#34393A',
 };
 const subtitleCSS: CSSObject = {
   color: '#34393A',
   fontSize: '1em',
-}
+};
 
-export default function SubscriptionConfirmed({ data, pageContext: { langCode }, location }) {
+export default function SubscriptionConfirmed({
+  data,
+  pageContext: { langCode },
+  location,
+}) {
   const LOCAL = subscribedPageStrings[langCode];
-
+  const subEmail = new Cookies().get('subEmail');
   return (
     <MainLayout language={langCode} location={{ ...location }}>
       <SEO title={LOCAL['seoTitle']} langCode={langCode} />
       <div css={containerCSS}>
-      <h1 css={titleCSS}>{LOCAL['divTitle']}</h1>
-      <p css={subtitleCSS}>{LOCAL['divSubtitle']}</p>
-      <Link to='/' css={buttonCSS}>{LOCAL['goBackHome']}</Link>
+        <h1 css={titleCSS}>{LOCAL['divTitle']}</h1>
+        <p css={subtitleCSS}>{LOCAL['divSubtitle']}</p>
+
+        <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
+        <iframe
+          class="airtable-embed airtable-dynamic-height"
+          src={`https://airtable.com/embed/shrzx2UHeHLxztADT?backgroundColor=purple&prefill_personMail=${subEmail ? subEmail : ''}`}
+          frameborder="0"
+          onmousewheel=""
+          width="100%"
+          height="904px"
+          style={{ background: 'transparent', border: '1px solid #ccc' }}
+        ></iframe>
+
+        {/* <Link to="/" css={buttonCSS}>
+          {LOCAL['goBackHome']}
+        </Link> */}
       </div>
     </MainLayout>
   );

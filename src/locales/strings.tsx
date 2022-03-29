@@ -63,20 +63,34 @@ const stringBuilderEnFr = (arrayOfStrings: MultilangString[]) => {
 };
 
 export const indexPageStrings = stringBuilderEnFr([
+  StringEnFr('imaginationLimit', 'Give it a try!', `A toi d'essayer !`),
+  StringEnFr('howdoesitwork', 'How does it work?', 'Comment ça marche ?'),
+  StringEnFr('shoot', 'Shoot', 'Filme'),
+  StringEnFr('weProcess', 'The App detects you', `L'app te reconnait`),
+  StringEnFr('reproject', 'Create mixes!', 'Fais des mix !'),
   StringEnFr('title', 'REVEALITY', 'REVEALITY'),
   StringEnFr(
     'punchline',
-    'Become a creator in the Mixed Reality',
-    `Deviens créateur dans la Réalité Mixte`
+    'Become a creator in Mixed Reality',
+    `Deviens créateur de Réalité Mixte`
   ),
   StringEnFr(
     'descriptionPunchline',
-    'Discover a new way to express your creativity. Film the reality around you and play with it. The screen has disappeared, your creations live in the real world!',
-    `Découvre une nouvelle façon de t'exprimer. Filme le monde autour de toi et joue avec. L'écran a disparu, tes créations vivent dans le monde réel !`
+    <>
+      Film the world around you and play with it.
+      <br /> Create content in live, in the real world!
+    </>,
+    <>
+      Filme le monde autour de toi et joue avec.
+      <br />
+      Tu peux créer en direct, dans le monde réel !
+    </>
   ),
-  StringEnFr('joinBetaRev', 
-  'Join the beta on Android and iPhone',
-  'Rejoins la beta sur Android et iPhone'),
+  StringEnFr(
+    'joinBetaRev',
+    'Join the beta on Android and iPhone',
+    'Rejoins la beta sur Android et iPhone'
+  ),
   StringEnFr('The App', 'The App', "L'appli"),
   StringEnFr(
     'To create in AR, you need...',
@@ -115,14 +129,14 @@ export const indexPageStrings = stringBuilderEnFr([
     'ArHumanText',
     <>
       Capture people directly like you would for a video. <br />
-      Create strong, meaningful Mixed Reality content using the best 3D environment ever
-      created: <strong>the real world</strong>. <br /> The possibilities are
-      endless!
+      Create strong, meaningful Mixed Reality content using the best 3D
+      environment ever created: <strong>the real world</strong>. <br /> The
+      possibilities are endless!
     </>,
     <>
       Filmez des personnes, comme pour une video. <br />
-      Créez du contenu Mixed Reality plein de sens en utilisant le meilleur environnement
-      3D jamais créé: <strong>le monde réel.</strong>
+      Créez du contenu Mixed Reality plein de sens en utilisant le meilleur
+      environnement 3D jamais créé: <strong>le monde réel.</strong>
       <br /> Les possibilités sont infinies !
     </>
   ),
@@ -141,7 +155,7 @@ export const indexPageStrings = stringBuilderEnFr([
   StringEnFr(
     'HolomakerStudioSubtitle',
     'Become an Holomaker',
-    "Devenez un Holomaker"
+    'Devenez un Holomaker'
   ),
 
   StringEnFr('Shoot', 'Shoot', 'Filmez'),
@@ -205,33 +219,22 @@ export const indexPageStrings = stringBuilderEnFr([
 
 export const subscribedPageStrings = stringBuilderEnFr([
   StringEnFr('seoTitle', 'Subscription Confirmed', 'Inscription confirmée'),
-  StringEnFr(
-    'divTitle',
-    'Subscription confirmed!',
-    `Inscription confirmée !`
-  ),
+  StringEnFr('divTitle', 'One more step...', `Encore une étape...`),
   StringEnFr(
     'divSubtitle',
-    'You will receive a confirmation mail shortly.',
-    `Vous allez recevoir un mail de confirmation sous peu.`
+    `Don't leave us yet! We need you to fill this form to access the beta`,
+    `Ne partez pas ! Veuillez remplir ce formulaire pour votre accès beta`
   ),
-  StringEnFr(
-    'goBackHome',
-    'Go back Home',
-    `Retour Accueil`
-  ),
-  
-]
-  );
+  StringEnFr('goBackHome', 'Go back Home', `Retour Accueil`),
+]);
 
-  export const notFoundPage = {
-    en: {
-      title: `NOT FOUND`,
-      subtext: `There is nothing here !`,
-    },
-    fr: {
-      title: `PAGE NON TROUVÉE`,
-      subtext: `Il n'y a rien ici !`,
-    },
-  };
-  
+export const notFoundPage = {
+  en: {
+    title: `NOT FOUND`,
+    subtext: `There is nothing here !`,
+  },
+  fr: {
+    title: `PAGE NON TROUVÉE`,
+    subtext: `Il n'y a rien ici !`,
+  },
+};

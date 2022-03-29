@@ -4,11 +4,7 @@
   color: $modernGreenDarkMode;
 }
 .CssGrid {
-
-  
   &NavContentFooter {
-
-
     width: 100%;
     margin: 0;
     padding: 0;
@@ -17,8 +13,7 @@
     grid-template-areas: 'nav nav' 'content content' 'content content' 'footer footer' 'navBottom navBottom';
 
     justify-items: stretch;
-    
-  
+
     .AppBar {
       justify-self: stretch;
       grid-area: nav;
@@ -38,7 +33,7 @@
       position: sticky;
       top: 0;
       z-index: 1;
-      background-color: transparent;
+      background-color: #fcf9e8;
 
       // bottom nav menu
       // @include breakpoint(small) {
@@ -55,6 +50,7 @@
     .gridContent {
       grid-area: content;
       z-index: 0;
+      background: linear-gradient(25deg, #e5f9ff 0%, #fcf9e8 100%);
     }
 
     .gridFooter {
@@ -64,6 +60,7 @@
       align-items: center;
       justify-content: flex-end;
       z-index: 0;
+      background-color: #e5f9ff;
     }
 
     .gridBottomBar {

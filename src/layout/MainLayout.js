@@ -10,8 +10,8 @@ import { indexPageStrings } from '../locales/strings';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import HoloNavbar from '../bits/RealNavbar/Navbar';
 import { createTheme, adaptV4Theme } from '@mui/material/styles';
-import {  ThemeProvider as MaterialThemeProvider, } from '@mui/material/styles';
-
+import { ThemeProvider as MaterialThemeProvider } from '@mui/material/styles';
+import RevealityFooter from './../bits/RealFooter/Footer';
 // // TODO: store a cookie to enable/disable splash screen
 // const theme = createMuiTheme({
 //   palette: {
@@ -42,34 +42,36 @@ import {  ThemeProvider as MaterialThemeProvider, } from '@mui/material/styles';
 //   },
 // });
 
-const theme = createTheme(adaptV4Theme({
-  palette: {
-    mode: 'light',
-    primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#649DE5',
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
+const theme = createTheme(
+  adaptV4Theme({
+    palette: {
+      mode: 'light',
+      primary: {
+        // light: will be calculated from palette.primary.main,
+        main: '#649DE5', // Sky blue
+        // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+      },
+      secondary: {
+        main: '#2771cc', // Sky Blue Hover
+      },
+      background: {
+        default: '#282c34',
+        paper: '#19191d',
+      },
+      action: {
+        hover: 'rgba(0,0,0,0.56)',
+      },
+      // Used by `getContrastText()` to maximize the contrast between
+      // the background and the text.
+      contrastThreshold: 3,
+      // Used by the functions below to shift a color's luminance by approximately
+      // two indexes within its tonal palette.
+      // E.g., shift from Red 500 to Red 300 or Red 700.
+      tonalOffset: 0.2,
     },
-    secondary: {
-      main: '#4274B5',
-    },
-    background: {
-      default: '#282c34',
-      paper: '#19191d',
-    },
-    action: {
-      hover: 'rgba(0,0,0,0.56)',
-    },
-    // Used by `getContrastText()` to maximize the contrast between
-    // the background and the text.
-    contrastThreshold: 3,
-    // Used by the functions below to shift a color's luminance by approximately
-    // two indexes within its tonal palette.
-    // E.g., shift from Red 500 to Red 300 or Red 700.
-    tonalOffset: 0.2,
-  },
-}))
+  })
+);
 
 export default function MainLayout({ children, language, location }) {
   let showPerformanceOverlay = false;
@@ -95,10 +97,7 @@ export default function MainLayout({ children, language, location }) {
 
   return (
     <MaterialThemeProvider theme={theme}>
-      <div className="CssGridNavContentFooter" css={{
-        background: 'linear-gradient(25deg, #E5F9FF 0%, #FCF9E8 100%)'
-  
-      }}>
+      <div className="CssGridNavContentFooter">
         {/* {!isItRootUrl && (
           <div className="AppBar">
             <MobileAppBar title={'The Live Drawing Project'} /> 
@@ -107,12 +106,12 @@ export default function MainLayout({ children, language, location }) {
         <nav className="gridNavBar">
           <HoloNavbar
             currentLangCode={language}
-            supportedLangs={Object.keys(supportedLangs)}
             currentUrl={location.pathname}
           />
         </nav>
         <div className="gridContent styleContent">{children}</div>
-        <div className="">
+
+        <div className="gridFooter">
           {/* <Footer links={FooterLinks[language].links} lang={language} /> */}
           {/* {location && (
             <LanguageSwitcher
@@ -121,11 +120,13 @@ export default function MainLayout({ children, language, location }) {
               currentUrl={location.pathname}
             />
           )} */}
-
-         
+          <RevealityFooter
+            lang={language}
+            links={FooterLinks[language].links}
+          />
         </div>
       </div>
-      </MaterialThemeProvider>
+    </MaterialThemeProvider>
   );
 }
 

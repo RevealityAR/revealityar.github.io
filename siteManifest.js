@@ -4,7 +4,7 @@ module.exports = {
   author: `Reveality`,
   authorMail: 'contact@reveality.io',
   // %s for pageName
-  titleTemplate: '%s · Reveality',
+  titleTemplate: 'reveality · %s ',
   // Not too long for google snippet !
   description:
     'Discover a new way to express your creativity. Film the reality around you and play with it! Tell your stories in Augmented Reality with Reveality',

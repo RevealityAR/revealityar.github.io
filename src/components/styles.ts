@@ -1,4 +1,3 @@
-
 export const breakpointKey = (value: string): string => {
   if (value === 'small') {
     return `@media (max-width: 61em)`;

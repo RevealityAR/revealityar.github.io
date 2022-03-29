@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { CSSObject } from '@emotion/react';
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -10,6 +11,8 @@ import BackgroundSlider from 'gatsby-image-background-slider';
 import { SvgSlideshow } from '../components/svgSlideshow';
 import PostGridFlat from '../bits/PostGridFlat/PostGridFlat';
 import TldpLogo from '../bits/TldpLogo/TldpLogo';
+import AppleIcon from '@mui/icons-material/Apple';
+import AndroidIcon from '@mui/icons-material/Android';
 import './index.scss';
 import './PhoneMockup.scss';
 import './basics.scss';
@@ -24,10 +27,14 @@ import Slider from 'react-slick';
 
 import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
 import { breakpointKey } from './../components/styles';
-import demoVideo from "./demo-screen.mp4";
+import demoVideo from './mixVitrine.webm';
+import subjectRaw from './subjectRAW.webm';
+import subjectAlpha from './subjectALPHA.webm';
+import subjectMix from './subjectMIX.webm';
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
 import RevealityFooter from './../bits/RealFooter/Footer';
-const MAILCHIMP_URL = 'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
+const MAILCHIMP_URL =
+  'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
 const numberOfEventsToShow = 6;
 const icon = {
   hidden: {
@@ -295,16 +302,43 @@ const marqueBlockCSS: CSSObject = {
   fontSize: 'italic',
   padding: '0.5em',
   color: 'white',
-              fontWeight: 600,
-              paddingTop: '2em',
-              paddingBottom: '2em',
+  fontWeight: 600,
+  paddingTop: '2em',
+  paddingBottom: '2em',
 };
 ///
 
+const subjectVideoCSS: CSSObject = {
+  borderRadius: '16px',
+  height: '50vh',
+  margin: '2em',
+  [breakpointKey('small')]: {
+    height: '60vh',
+    borderRadius: '18px',
+  },
+};
+
+const subjectTitleCSS: CSSObject = {
+  padding: '2rem',
+  paddingTop: '1rem',
+  paddingBottom: '1rem',
+  borderRadius: '0.4rem',
+  color: '#fbf9e8',
+  backgroundColor: '#649de4',
+  userSelect: 'none'
+};
+
+const joinBetaCallCSS: CSSObject = {
+  textAlign: 'center',
+  color: '#2A6DBF',
+}
 export default function Index({ data, pageContext: { langCode }, location }) {
   const LOCAL = indexPageStrings[langCode];
   const posts = data.allMdx.edges;
   const localesOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+
+  const [subjectNumber, setSubjectNumber] = useState<number>(1);
+  // const subjectVideo = useState(subjectRaw);
 
   /*
    <div
@@ -321,105 +355,207 @@ export default function Index({ data, pageContext: { langCode }, location }) {
     <MainLayout language={langCode} location={{ ...location }}>
       <SEO title={'Home'} langCode={langCode} />
 
-
       <div
         css={{
           ...responsiveContainerCSS,
           justifyContent: 'center',
           alignItems: 'center',
           minHeight: '90vh',
-
-          // backgroundColor: 'rgb(10,10,10)',
-          backgroundColor: 'transparent',
           display: 'flex',
           flexDirection: 'column',
-          background: 'linear-gradient(25deg, #E5F9FF 0%, #FCF9E8 100%)',
-          // [breakpointKey('small')]: {
-          //   flexDirection: 'row'
-          // }
         }}
       >
+        <div
+          css={{
+            ...responsiveContainerInsideCSS,
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            [breakpointKey('small')]: {
+              flexDirection: 'column',
+            },
+          }}
+        >
+          <div
+            css={{
+              minWidth: '30vw',
+              maxWidth: '40vw',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+              [breakpointKey('small')]: {
+                minWidth: '90vw',
+              },
+            }}
+          >
+            <div
+              css={{
+                width: '7rem',
+                height: `${7 * 1.5}rem`,
 
-              
-        <div css={{ ...responsiveContainerInsideCSS, display: 'flex', flexDirection: 'row', justifyContent: 'flex-start',
-        [breakpointKey('small')]: {
-            flexDirection: 'column'
-          }
-      
-      }}>
-          <div css={{
-            minWidth: '30vw',
-            maxWidth: '40vw',
+                marginBottom: 0,
+                opacity: 0.9,
+                padding: '2rem',
+                [breakpointKey('small')]: {
+                  width: '5rem',
+                  height: `${5 * 1.5}rem`,
+                },
+              }}
+            >
+              <RevealityLogo />
+            </div>
+
+            <h1 css={punchlineCSS}>{LOCAL['punchline']}</h1>
+            <p
+              css={{
+                paddingLeft: '5rem',
+                paddingRight: '5rem',
+                textAlign: 'center',
+              }}
+            >
+              {LOCAL['descriptionPunchline']}
+            </p>
+            <p></p>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
+              <MailForm
+                uniqueId={'footerForm'}
+                mailchimpURL={MAILCHIMP_URL}
+                uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
+              />
+            </div>
+          </div>
+
+          <div
+            css={{
+              [breakpointKey('normal')]: {
+                minWidth: '40rem',
+                maxWidth: '50rem',
+              },
+              [breakpointKey('small')]: {
+                minWidth: '90vw',
+                padding: '0.2rem',
+                paddingTop: '3rem',
+              },
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+            }}
+          >
+            <video
+              autoPlay
+              muted
+              loop
+              style={{ borderRadius: '20px', height: '70vh' }}
+            >
+              <source src={demoVideo} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <h1 css={{ ...punchlineCSS, marginTop: '8rem', marginBottom: '2rem' }}>
+          {LOCAL['howdoesitwork']}
+        </h1>
+        <div
+          css={{
+            [breakpointKey('normal')]: {
+              minWidth: '40rem',
+              maxWidth: '50rem',
+              alignItems: 'flex-start',
+            },
+            [breakpointKey('small')]: {
+              minWidth: '90vw',
+              padding: '0.2rem',
+              paddingTop: '3rem',
+              flexDirection: 'column',
+              alignItems: 'center',
+            },
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <div
+            css={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <h3 css={subjectTitleCSS}>{LOCAL['shoot']}</h3>
+
+            <video autoPlay muted loop css={subjectVideoCSS}>
+              <source src={subjectRaw} type="video/webm" />
+            </video>
+          </div>
+          <div
+            css={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <h3 css={subjectTitleCSS}>{LOCAL['weProcess']}</h3>
+            <video autoPlay muted loop css={subjectVideoCSS}>
+              <source src={subjectAlpha} type="video/webm" />
+            </video>
+          </div>
+
+          <div
+            css={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <h3 css={subjectTitleCSS}>{LOCAL['reproject']}</h3>
+            <video autoPlay muted loop css={subjectVideoCSS}>
+              <source src={subjectMix} type="video/webm" />
+            </video>
+          </div>
+        </div>
+
+        <div
+          css={{
+            [breakpointKey('normal')]: {
+              minWidth: '40rem',
+              maxWidth: '50rem',
+            },
+            [breakpointKey('small')]: {
+              minWidth: '90vw',
+              padding: '0.2rem',
+              paddingTop: '3rem',
+            },
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+          }}
+        ></div>
+
+        <h2>{LOCAL['imaginationLimit']}</h2>
+        <div
+          style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-around',
-            [breakpointKey('small')]: {
-              minWidth: '90vw'
-            }
-          }}>
-
-          <div css={{
-              width: '7rem',
-              height: `${7*1.5}rem`,
-
-              marginBottom: 0,
-              opacity: 0.9,
-              padding:  '2rem',
-              [breakpointKey('small')]: {
-                width: '5rem',
-                height: `${5*1.5}rem`,
-              }
-            
-          }}>
-          <RevealityLogo/>
-          </div>
-   
-          <h1 css={punchlineCSS}>{LOCAL['punchline']}</h1>
-          <p css={{
-            paddingLeft: '5rem',
-            paddingRight: '5rem',
-            textAlign: 'center',
-          }}>
-           {LOCAL['descriptionPunchline']}</p>
-          <div style={{display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center'}}>
-              <h3 style={{color: 'dimgray'}}>{LOCAL['joinBetaRev']}</h3>
-              <MailForm uniqueId={'footerForm'}
-               mailchimpURL= {MAILCHIMP_URL}
-              uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-             />
-             
-              </div>
-          
-          </div>
-        
-
-        <div css={{ [breakpointKey('normal')]: {
-    minWidth: '40rem',
-    maxWidth: '50rem',
-  },
-  [breakpointKey('small')]: {
-    minWidth: '90vw',
-    padding: '0.2rem',
-    paddingTop: '3rem'
-  }, 
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'flex-start'
-  }}>
-          <video autoPlay muted loop style={{borderRadius: '40px', height: '70vh'}}>
-      <source src={demoVideo} type="video/mp4" />
-    </video>
+            justifyContent: 'center',
+          }}
+        >
+          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
+          <MailForm
+            uniqueId={'footerForm'}
+            mailchimpURL={MAILCHIMP_URL}
+            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
+          />
         </div>
-
-
-
       </div>
-
-      <RevealityFooter lang={langCode}/>
-
- </div> 
-
     </MainLayout>
   );
 }

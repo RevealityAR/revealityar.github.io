@@ -20,8 +20,8 @@ export const FooterLinks = {
   en: {
     links: [
       { path: '/', name: 'HOME' },
-      { path: '/gallery', name: 'GALLERY' },
-      { path: '/booking', name: 'BOOKING' },
+      // { path: '/gallery', name: 'GALLERY' },
+      // { path: '/booking', name: 'BOOKING' },
       { path: '/jobs', name: 'JOBS' },
     ],
   },
@@ -29,8 +29,8 @@ export const FooterLinks = {
   fr: {
     links: [
       { path: '/fr', name: 'ACCUEIL' },
-      { path: '/fr/gallery', name: 'GALERIE' },
-      { path: '/fr/booking', name: 'RESERVER' },
+      // { path: '/fr/gallery', name: 'GALERIE' },
+      // { path: '/fr/booking', name: 'RESERVER' },
       { path: '/fr/jobs', name: 'JOBS' },
     ],
   },
