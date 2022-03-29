@@ -336,6 +336,10 @@ const joinBetaCallCSS: CSSObject = {
   textAlign: 'center',
   color: '#2A6DBF',
 }
+
+const mainVideoCSS: CSSObject = {
+borderRadius: '20px', height: '70vh'
+};
 export default function Index({ data, pageContext: { langCode }, location }) {
   const LOCAL = indexPageStrings[langCode];
   const posts = data.allMdx.edges;
@@ -458,7 +462,8 @@ export default function Index({ data, pageContext: { langCode }, location }) {
               autoPlay
               muted
               loop
-              style={{ borderRadius: '20px', height: '70vh' }}
+              playsinline
+              css={mainVideoCSS}
             >
               <source src={demoVideo} type="video/webm" />
               <source src={demoVideoFallback} type="video/mp4" />
@@ -496,7 +501,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
           >
             <h3 css={subjectTitleCSS}>{LOCAL['shoot']}</h3>
 
-            <video autoPlay muted loop css={subjectVideoCSS}>
+            <video autoPlay muted loop playsinline css={subjectVideoCSS}>
               <source src={subjectRaw} type="video/webm" />
               <source src={subjectRawFallback} type="video/mp4" />
             </video>
@@ -509,7 +514,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             }}
           >
             <h3 css={subjectTitleCSS}>{LOCAL['weProcess']}</h3>
-            <video autoPlay muted loop css={subjectVideoCSS}>
+            <video autoPlay muted loop playsinline css={subjectVideoCSS}>
               <source src={subjectAlpha} type="video/webm" />
               <source src={subjectAlphaFallback} type="video/mp4" />
             </video>
@@ -523,7 +528,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             }}
           >
             <h3 css={subjectTitleCSS}>{LOCAL['reproject']}</h3>
-            <video autoPlay muted loop css={subjectVideoCSS}>
+            <video autoPlay muted loop playsinline css={subjectVideoCSS}>
               <source src={subjectMix} type="video/webm" />
               <source src={subjectMixFallback} type="video/mp4" />
             </video>
