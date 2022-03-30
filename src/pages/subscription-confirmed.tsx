@@ -54,6 +54,7 @@ export default function SubscriptionConfirmed({
 }) {
   const LOCAL = subscribedPageStrings[langCode];
   const subEmail = new Cookies().get('subEmail');
+  console.log('subMail', subEmail);
   return (
     <MainLayout language={langCode} location={{ ...location }}>
       <SEO title={LOCAL['seoTitle']} langCode={langCode} />

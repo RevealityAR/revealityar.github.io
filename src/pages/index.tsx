@@ -28,13 +28,21 @@ import Slider from 'react-slick';
 import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
 import { breakpointKey } from './../components/styles';
 import demoVideo from './mixVitrine.webm';
-import demoVideoFallback from './mixVitrine.mp4';
+import demoVideoSafari from './mixVitrineSafari.mov';
+
 import subjectRaw from './subjectRAW.webm';
 import subjectAlpha from './subjectALPHA.webm';
 import subjectMix from './subjectMIX.webm';
-import subjectRawFallback from './subjectRAW.mp4';
-import subjectAlphaFallback from './subjectALPHA.mp4';
-import subjectMixFallback from './subjectMIX.mp4';
+
+// import subjectRawSafariIos from './subjectRAW.mp4';
+// import subjectAlphaSafariIos from './subjectALPHA.mp4';
+// import subjectMixSafariIos from './subjectMIX.mp4';
+
+import subjectRawSafariIos from './subjectRAWSafari.mov';
+import subjectAlphaSafariIos from './subjectALPHASafari.mov';
+import subjectMixSafariIos from './subjectMIXSafari.mov';
+
+
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
 import RevealityFooter from './../bits/RealFooter/Footer';
 const MAILCHIMP_URL =
@@ -462,11 +470,11 @@ export default function Index({ data, pageContext: { langCode }, location }) {
               autoPlay
               muted
               loop
-              playsinline
+              playsInline
               css={mainVideoCSS}
             >
               <source src={demoVideo} type="video/webm" />
-              <source src={demoVideoFallback} type="video/mp4" />
+              <source src={demoVideoSafari} type="video/mp4" />
             </video>
           </div>
         </div>
@@ -501,9 +509,9 @@ export default function Index({ data, pageContext: { langCode }, location }) {
           >
             <h3 css={subjectTitleCSS}>{LOCAL['shoot']}</h3>
 
-            <video autoPlay muted loop playsinline css={subjectVideoCSS}>
+            <video autoPlay muted loop playsInline css={subjectVideoCSS}>
               <source src={subjectRaw} type="video/webm" />
-              <source src={subjectRawFallback} type="video/mp4" />
+              <source src={subjectRawSafariIos} type="video/mp4" />
             </video>
           </div>
           <div
@@ -514,9 +522,9 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             }}
           >
             <h3 css={subjectTitleCSS}>{LOCAL['weProcess']}</h3>
-            <video autoPlay muted loop playsinline css={subjectVideoCSS}>
+            <video autoPlay muted loop playsInline css={subjectVideoCSS}>
               <source src={subjectAlpha} type="video/webm" />
-              <source src={subjectAlphaFallback} type="video/mp4" />
+              <source src={subjectAlphaSafariIos} type="video/mp4" />
             </video>
           </div>
 
@@ -528,9 +536,9 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             }}
           >
             <h3 css={subjectTitleCSS}>{LOCAL['reproject']}</h3>
-            <video autoPlay muted loop playsinline css={subjectVideoCSS}>
+            <video autoPlay muted loop playsInline css={subjectVideoCSS}>
               <source src={subjectMix} type="video/webm" />
-              <source src={subjectMixFallback} type="video/mp4" />
+              <source src={subjectMixSafariIos} type="video/mp4" />
             </video>
           </div>
         </div>
