@@ -61,6 +61,9 @@ export default function SubscriptionConfirmed({
       <div css={containerCSS}>
         <h1 css={titleCSS}>{LOCAL['divTitle']}</h1>
         <p css={subtitleCSS}>{LOCAL['divSubtitle']}</p>
+        <div css={{padding: '1rem'}}>
+        <Link to='https://airtable.com/shrzx2UHeHLxztADT'>{LOCAL['formProblemFallback']}</Link>
+        </div>
 
         <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
         <iframe

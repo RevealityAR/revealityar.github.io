@@ -89,7 +89,7 @@ export const indexPageStrings = stringBuilderEnFr([
   ),
   StringEnFr(
     'joinBetaRev',
-    'Join the beta on Android and iPhone',
+    'Join beta on Android and iPhone',
     'Rejoins la beta sur Android et iPhone'
   ),
   StringEnFr('The App', 'The App', "L'appli"),
@@ -118,7 +118,7 @@ export const indexPageStrings = stringBuilderEnFr([
   StringEnFr('Try it out!', 'Try it out!', 'Essayez !'),
   StringEnFr('yourPhone', 'a phone.', 'un smartphone.'),
 
-  StringEnFr('Join the beta', 'Join the beta', 'Rejoindre la beta'),
+  StringEnFr('Join the beta', 'Join beta', 'Rejoindre la beta'),
   StringEnFr('joinStudio', 'Keep me in touch', 'Tenez moi au courant'),
 
   StringEnFr(

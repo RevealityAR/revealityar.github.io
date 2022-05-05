@@ -28,7 +28,7 @@ import Slider from 'react-slick';
 import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
 import { breakpointKey } from './../components/styles';
 import demoVideo from './mixVitrine.webm';
-import demoVideoSafari from './mixVitrineSafari.mov';
+import demoVideoSafari from './mixVitrineSafari.mp4';
 
 import subjectRaw from './subjectRAW.webm';
 import subjectAlpha from './subjectALPHA.webm';
@@ -38,9 +38,9 @@ import subjectMix from './subjectMIX.webm';
 // import subjectAlphaSafariIos from './subjectALPHA.mp4';
 // import subjectMixSafariIos from './subjectMIX.mp4';
 
-import subjectRawSafariIos from './subjectRAWSafari.mov';
-import subjectAlphaSafariIos from './subjectALPHASafari.mov';
-import subjectMixSafariIos from './subjectMIXSafari.mov';
+import subjectRawSafariIos from './subjectRAWSafari.mp4';
+import subjectAlphaSafariIos from './subjectALPHASafari.mp4';
+import subjectMixSafariIos from './subjectMIXSafari.mp4';
 
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
