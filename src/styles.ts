@@ -1,5 +1,5 @@
 import { CSSObject } from "@emotion/react";
-import { breakpointKey, basicTransition } from "../components/styles";
+import { breakpointKey, basicTransition } from "./components/styles";
 
         export const responsiveContainerCSS: CSSObject = {
             display: 'flex',

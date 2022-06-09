@@ -71,7 +71,7 @@ import subjectMixSafariIos from './subjectMIXSafari.mp4';
 import { responsiveContainerCSS, responsiveContainerInsideCSS, joinBetaCallCSS, subjectTitleCSS, subjectVideoCSS, punchlineCSS, mainVideoCSS, clientsLogoGridCSS, clientLogoCSS, imageBackgroundCSS,
 
 
-iconContainerCSS, thirdPageContainerCSS, subtextCSS} from './styles';
+iconContainerCSS, thirdPageContainerCSS, subtextCSS} from '../styles';
 
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
