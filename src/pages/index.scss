@@ -84,6 +84,12 @@
 //   }
 // }
 
+.RevLink {
+margin-top: '2rem';
+margin-bottom: '2rem';
+    @include themedTagA();
+  font-size: '4rem';
+}
 .Punchline {
   font-size: 3em;
   font-weight: 600;

@@ -14,7 +14,8 @@ import PostGridFlat from '../bits/PostGridFlat/PostGridFlat';
 import TldpLogo from '../bits/TldpLogo/TldpLogo';
 import AppleIcon from '@mui/icons-material/Apple';
 import AndroidIcon from '@mui/icons-material/Android';
-
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 
 import logoClient_nat from '../res/logoClient_nat.webp'
 import logoClient_cube from '../res/logoClient_cube.png'
@@ -27,8 +28,8 @@ import logoPartner_schoolab from '../res/logoPartner_schoolab.png'
 import logoPartner_polepixel from '../res/logoPartner_polePixel.svg'
 import logoPartner_lincc from '../res/logoPartner_lincc.png'
 
-
-
+import SchoolIcon from '@material-ui/icons/School';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import AllInclusiveOutlinedIcon from '@mui/icons-material/AllInclusiveOutlined';
@@ -49,11 +50,11 @@ import './ShowcasePage.scss';
 import Marquee from 'react-fast-marquee';
 // import { UpDown } from './animations';
 // import Svg from './svg';
-import MonolithVisualisation from './../components/MonolithVisualisation/MonolithVisualisation';
+import MonolithVisualisation from '../components/MonolithVisualisation/MonolithVisualisation';
 import Slider from 'react-slick';
 
 import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
-import { breakpointKey } from './../components/styles';
+import { breakpointKey } from '../components/styles';
 import demoVideo from './mixVitrine.webm';
 import demoVideoSafari from './mixVitrineSafari.mp4';
 
@@ -68,32 +69,31 @@ import subjectMix from './subjectMIX.webm';
 import subjectRawSafariIos from './subjectRAWSafari.mp4';
 import subjectAlphaSafariIos from './subjectALPHASafari.mp4';
 import subjectMixSafariIos from './subjectMIXSafari.mp4';
-import { responsiveContainerCSS, responsiveContainerInsideCSS, joinBetaCallCSS, subjectTitleCSS, subjectVideoCSS, punchlineCSS, mainVideoCSS, clientsLogoGridCSS, clientLogoCSS, imageBackgroundCSS,
+import { responsiveContainerCSS, responsiveContainerInsideCSS, joinBetaCallCSS, punchlineCSS, subjectTitleCSS, subjectVideoCSS, punchlineFeatureCSS, mainVideoCSS, clientsLogoGridCSS, clientLogoCSS, imageBackgroundCSS,
 
 
 iconContainerCSS, thirdPageContainerCSS, subtextCSS} from './styles';
 
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
-import RevealityFooter from './../bits/RealFooter/Footer';
+import RevealityFooter from '../bits/RealFooter/Footer';
+import { themedACSS } from '../bits/styles/styles';
 
 
-const CLIENTS_LOGOS = [
-  {imageUrl: logoClient_cube, siteUrl: 'https://lecube.com/', scale : 0.7},
+const LOGOS = [
+ 
   {imageUrl: logoClient_nat, siteUrl: 'https://www.natachapaquignon.com/'},
   {imageUrl: logoClient_saintex, siteUrl: 'https://saintex-reims.com/'},
+  {imageUrl: logoClient_cube, siteUrl: 'https://lecube.com/', scale: '0.7'},
   {imageUrl: logoClient_snzc, siteUrl: 'https://en.snzn.org/'},
   {imageUrl: logoClient_aadn, siteUrl: 'https://aadn.org'},
+  // {imageUrl: logoPartner_idf, siteUrl: 'https://www.iledefrance.fr'},
+  // {imageUrl: logoPartner_stationf, siteUrl: 'https://stationf.co/'},
+  // {imageUrl: logoPartner_schoolab, siteUrl: 'https://www.theschoolab.com/'},
+  // {imageUrl: logoPartner_polepixel, siteUrl: 'https://polepixel.fr/'},
+  // {imageUrl: logoPartner_lincc, siteUrl: 'https://lincc.parisandco.paris/'},
 
-]
-
-const PARTNERS_LOGOS = [
-
-  {imageUrl: logoPartner_idf, siteUrl: 'https://www.iledefrance.fr'},
-  {imageUrl: logoPartner_stationf, siteUrl: 'https://stationf.co/'},
-  {imageUrl: logoPartner_schoolab, siteUrl: 'https://www.theschoolab.com/'},
-  {imageUrl: logoPartner_polepixel, siteUrl: 'https://polepixel.fr/'},
-  {imageUrl: logoPartner_lincc, siteUrl: 'https://lincc.parisandco.paris/'},
+  
 ]
 const MAILCHIMP_URL =
   'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
@@ -168,10 +168,22 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             }}
           >
           */
+
+          /*
+            Punchline
+            des petites photos floutées
+            les logos des partenaires
+
+            2-3 screenshots
+            les features de l'app spécial médiation
+
+            call to action
+
+
+          */
   return (
     <MainLayout language={langCode} location={{ ...location }}>
-      <SEO title={'Home'} langCode={langCode} />
-
+      <SEO title={'Education'} langCode={langCode} />
       <div
         css={{
           ...responsiveContainerCSS,
@@ -182,204 +194,10 @@ export default function Index({ data, pageContext: { langCode }, location }) {
           flexDirection: 'column',
         }}
       >
-        <div
-          css={{
-            ...responsiveContainerInsideCSS,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            [breakpointKey('small')]: {
-              flexDirection: 'column',
-            },
-          }}
-        >
-          <div
-            css={{
-              minWidth: '30vw',
-              maxWidth: '40vw',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              [breakpointKey('small')]: {
-                minWidth: '90vw',
-              },
-            }}
-          >
-            <div
-              css={{
-                width: '7rem',
-                height: `${7 * 1.5}rem`,
+      <h1 css={{...subjectTitleCSS, textAlign: 'center', marginTop: '4rem'}}>Une solution complète pour initier à la Réalité Augmentée</h1>
 
-                marginBottom: 0,
-                opacity: 0.9,
-                padding: '2rem',
-                [breakpointKey('small')]: {
-                  width: '5rem',
-                  height: `${5 * 1.5}rem`,
-                },
-              }}
-            >
-              <RevealityLogo />
-            </div>
-
-            <h1 css={punchlineCSS}>{LOCAL['punchline']}</h1>
-            <p
-              css={{
-                paddingLeft: '5rem',
-                paddingRight: '5rem',
-                textAlign: 'center',
-              }}
-            >
-              {LOCAL['descriptionPunchline']}
-            </p>
-            <p></p>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
-              <MailForm
-                uniqueId={'footerForm'}
-                mailchimpURL={MAILCHIMP_URL}
-                uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-              />
-            </div>
-          </div>
-
-          <div
-            css={{
-              [breakpointKey('normal')]: {
-                minWidth: '40rem',
-                maxWidth: '50rem',
-              },
-              [breakpointKey('small')]: {
-                minWidth: '90vw',
-                padding: '0.2rem',
-                paddingTop: '3rem',
-              },
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-            }}
-          >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              css={mainVideoCSS}
-            >
-              <source src={demoVideo} type="video/webm" />
-              <source src={demoVideoSafari} type="video/mp4" />
-            </video>
-          </div>
-        </div>
-
-        <h1 css={{ ...punchlineCSS, marginTop: '8rem', marginBottom: '2rem' }}>
-          {LOCAL['howdoesitwork']}
-        </h1>
-        <div
-          css={{
-            [breakpointKey('normal')]: {
-              minWidth: '40rem',
-              maxWidth: '50rem',
-              alignItems: 'flex-start',
-            },
-            [breakpointKey('small')]: {
-              minWidth: '90vw',
-              padding: '0.2rem',
-              paddingTop: '3rem',
-              flexDirection: 'column',
-              alignItems: 'center',
-            },
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            css={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <h3 css={subjectTitleCSS}>{LOCAL['shoot']}</h3>
-
-            <video autoPlay muted loop playsInline css={subjectVideoCSS}>
-              <source src={subjectRaw} type="video/webm" />
-              <source src={subjectRawSafariIos} type="video/mp4" />
-            </video>
-          </div>
-          <div
-            css={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <h3 css={subjectTitleCSS}>{LOCAL['weProcess']}</h3>
-            <video autoPlay muted loop playsInline css={subjectVideoCSS}>
-              <source src={subjectAlpha} type="video/webm" />
-              <source src={subjectAlphaSafariIos} type="video/mp4" />
-            </video>
-          </div>
-
-          <div
-            css={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <h3 css={subjectTitleCSS}>{LOCAL['reproject']}</h3>
-            <video autoPlay muted loop playsInline css={subjectVideoCSS}>
-              <source src={subjectMix} type="video/webm" />
-              <source src={subjectMixSafariIos} type="video/mp4" />
-            </video>
-          </div>
-        </div>
-
-        <div
-          css={{
-            [breakpointKey('normal')]: {
-              minWidth: '40rem',
-              maxWidth: '50rem',
-            },
-            [breakpointKey('small')]: {
-              minWidth: '90vw',
-              padding: '0.2rem',
-              paddingTop: '3rem',
-            },
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-          }}
-        ></div>
-
-        <h2>{LOCAL['imaginationLimit']}</h2>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
-          <MailForm
-            uniqueId={'footerForm'}
-            mailchimpURL={MAILCHIMP_URL}
-            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-          />
-        </div>
-
-
-<div css={responsiveContainerCSS}>
+      
+      <div css={responsiveContainerCSS}>
 <div css={{...responsiveContainerInsideCSS, 
     display: 'block',
 paddingBottom: '56.25%',
@@ -388,7 +206,7 @@ height: '0px',
 // width: '90vw',
 overflow: 'hidden',
 margin: '0px',
-marginTop: '2rem', marginBottom: '2rem'}}>
+marginBottom: '4rem'}}>
   <iframe  css={{
     position: 'absolute',
     top: '0px',
@@ -404,13 +222,100 @@ marginTop: '2rem', marginBottom: '2rem'}}>
 
 
 
-  <h3 css={punchlineCSS}>Ils travaillent avec nous</h3>
-  <div css={responsiveContainerCSS}>
+  <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '4rem',
+          }}
+        >
+          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
+          <MailForm
+            uniqueId={'footerForm'}
+            mailchimpURL={MAILCHIMP_URL}
+            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
+          />
+        </div>
+
+
+        <div css={responsiveContainerCSS}>
+      <div css={{...responsiveContainerInsideCSS,           display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'flex-start'}}>
+
+
+        <div css={thirdPageContainerCSS}>
+            <h3  css={{...punchlineFeatureCSS, ...iconContainerCSS}}><TouchAppOutlinedIcon fontSize="large" style={{color:"#649de3"}}/><span style={{marginTop: '1em'}}>
+            Simple, Intuitif</span></h3>
+            <p css={subtextCSS}>{`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.
+`}</p>
+          </div>
+
+
+          <div css={thirdPageContainerCSS}>
+            <h3  css={{...punchlineFeatureCSS, ...iconContainerCSS}}><FlashOnRoundedIcon fontSize="large" style={{color:"#649de3"}}/><span style={{marginTop: '1em'}}>
+            {`Flow Rapide`}</span></h3>
+            <p css={subtextCSS}>{`5 minutes suffisent pour créer une scène. C'est du temps gagné pour tester, explorer, recommencer.`}</p>
+          </div>
+
+
+
+          <div css={thirdPageContainerCSS}>
+            <h3  css={{...punchlineFeatureCSS, ...iconContainerCSS}}><PlayCircleFilledIcon fontSize="large" style={{color:"#649de3"}}/><span style={{marginTop: '1em'}}>
+            {`Restitution simple`}</span></h3>
+            <p css={subtextCSS}>{`Récupérez les créations en vidéo, diffusables sur toutes les plateformes existantes.`}</p>
+          </div>
+
+
+          <div css={thirdPageContainerCSS}>
+            <h3  css={{...punchlineFeatureCSS, ...iconContainerCSS}}><HomeRoundedIcon fontSize="large" style={{color:"#649de3"}}/><span style={{marginTop: '1em'}}>
+            {`Accessible à la maison`}</span></h3>
+            <p css={subtextCSS}>{`
+L’appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s’emparer de l’outil pendant, et après l’atelier.`}</p>
+          </div>
+
+          <div css={thirdPageContainerCSS}>
+            <h3  css={{...punchlineFeatureCSS, ...iconContainerCSS}}><BuildOutlinedIcon fontSize="large" style={{color:"#649de3"}}/><span style={{marginTop: '1em'}}>
+            {`Mise en place facile`}</span></h3>
+            <p css={subtextCSS}>{`Aucune contrainte d’espace, de matériel ou d'éclairage pour commencer à créer.`}</p>
+          </div>
+          <div css={thirdPageContainerCSS}>
+            <h3  css={{...punchlineFeatureCSS, ...iconContainerCSS}}><SchoolIcon fontSize="large" style={{color:"#649de3"}}/><span style={{marginTop: '1em'}}>
+            {`Mode Enseignant`}</span></h3>
+            <p css={subtextCSS}>{`Déroulez vos ateliers et accédez au travail des élèves depuis l'appli.`}</p>
+          </div>
+
+
+         
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+   
+
+
+
+    <h2 css={{...subjectTitleCSS, textAlign: 'center', }}>Ils participent au projet</h2>
+
+        <div css={responsiveContainerCSS}>
+       
 <div css={responsiveContainerInsideCSS}>
   <div css={
     clientsLogoGridCSS
   }>
-{CLIENTS_LOGOS.map(logo => {
+{LOGOS.map(logo => {
   return <a
   key={logo.siteUrl}
   css={{...clientLogoCSS, ...imageBackgroundCSS(logo.imageUrl), transform: `scale(${logo.scale ? logo.scale : 1})`}}
@@ -420,36 +325,34 @@ marginTop: '2rem', marginBottom: '2rem'}}>
 /> 
 
 })}
-  
-
-  </div>
-  </div>
-</div>
-
-<h3 css={punchlineCSS}>Ils nous accompagnent</h3>
-  <div css={responsiveContainerCSS}>
-<div css={responsiveContainerInsideCSS}>
-  <div css={
-    clientsLogoGridCSS
-  }>
-{PARTNERS_LOGOS.map(logo => {
-  return <a
-  key={logo.siteUrl}
-  css={{...clientLogoCSS, ...imageBackgroundCSS(logo.imageUrl), transform: `scale(${logo.scale ? logo.scale : 1})`}}
-  target="_blank"
-  rel="noreferrer noopener"
-  href={logo.siteUrl}
-/> 
-
-})}
-  
-
   </div>
   </div>
 </div>
 
 
 
+      
+<div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+
+          }}
+        >
+          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
+          <MailForm
+            uniqueId={'footerForm'}
+            mailchimpURL={MAILCHIMP_URL}
+            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
+          />
+        </div>
+
+
+<div css={{marginTop: '2rem', marginBottom: '2rem'}}>
+<Link to={'/'} className={'RevLink'}>Retour à l'accueil</Link>
+</div>
 
 
       </div>
@@ -458,7 +361,7 @@ marginTop: '2rem', marginBottom: '2rem'}}>
 }
 
 export const indexPageQuery = graphql`
-  query IndexQuery {
+  query EducQuery {
     backgrounds: allFile(filter: { absolutePath: { regex: "/backgrounds/" } }) {
       nodes {
         relativePath

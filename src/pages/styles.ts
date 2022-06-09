@@ -1,5 +1,5 @@
 import { CSSObject } from "@emotion/react";
-import { breakpointKey } from "../components/styles";
+import { breakpointKey, basicTransition } from "../components/styles";
 
         export const responsiveContainerCSS: CSSObject = {
             display: 'flex',
@@ -13,7 +13,7 @@ import { breakpointKey } from "../components/styles";
             },
             [breakpointKey('small')]: {
               minWidth: '90vw',
-              padding: '0.2rem',
+              // padding: '0.2rem',
             },
           };
           
@@ -257,3 +257,106 @@ import { breakpointKey } from "../components/styles";
           export const mainVideoCSS: CSSObject = {
           borderRadius: '20px', height: '70vh'
           };
+
+
+  // CLIENTS LOGOSexport const 
+export const clientsLogoGridCSS: CSSObject = {
+display: 'flex',
+flexWrap: 'wrap',
+flexDirection: 'row',
+justifyContent: 'space-around',
+maxWidth: '90vw',
+}
+export const clientLogoCSS: CSSObject = {
+
+  [breakpointKey('small')]: {
+    minWidth: '8em',
+  minHeight: '8em',
+  margin: '1em',
+  },
+
+  [breakpointKey('normal')]: {
+    minWidth: '8em',
+  minHeight: '8em',
+  margin: '2em',
+  },
+
+};
+
+export const imageBackgroundCSS = (url: string): CSSObject => {
+
+  return {
+    background: `url(${url})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  backgroundSize: 'contain',
+  opacity: 0.7,
+  // filter: 'grayscale(30%)',
+  transition : basicTransition(),
+  
+  '&:hover': {
+    transition : basicTransition(),
+    cursor: 'pointer',
+    filter: 'none',
+    opacity: 1,
+    transform: 'scale(1.05)',
+  }
+};
+};
+
+
+
+// Small key points features 
+
+export const iconContainerCSS: CSSObject = {display: 'flex', flexDirection: 'column', flexAlign: 'center', justifyContent: 'center', alignItems: "center", color: '#2A6DBF' };
+export const thirdPageContainerCSS: CSSObject = {
+  margin: 'auto',
+  marginTop: 0,
+marginBottom: '2rem',
+[breakpointKey('normal')]: {
+  minWidth: '26%',
+  width: '26%',
+},
+
+[breakpointKey('small')]: {
+  minWidth: '90%',
+}
+
+}
+
+export const subtextCSS: CSSObject =  {
+  display: "flex",
+  flexDirection: 'row',
+  fontSize: '1em',
+  color: '',
+  [breakpointKey('small')]: {
+    flexDirection: 'column',
+  },
+  justifyContent: 'center',
+  animation: 'fadein 1s',
+
+  fontWeight: 400,
+  lineHeight: '1.8em',
+
+
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+  margin: 0,
+
+textAlign: 'center',
+  
+}
+export const subtextPCSS: CSSObject = {
+
+}
+
+export const punchlineFeatureCSS: CSSObject = {
+
+  fontSize: '1.5em',
+  fontWeight: 400,
+  backgroundColor: 'transparent',
+
+  color: 'black',
+  margin: 'auto',
+  marginBottom: '0.5em'
+}
