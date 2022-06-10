@@ -356,3 +356,113 @@ export const punchlineFeatureCSS: CSSObject = {
   margin: 'auto',
   marginBottom: '0.5em',
 };
+
+/// INDEX TSX
+
+export const mainViewCSS: CSSObject = {
+  ...responsiveContainerCSS,
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '90vh',
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+export const mainViewInsideCSS: CSSObject = {
+  ...responsiveContainerInsideCSS,
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'flex-start',
+  [breakpointKey('small')]: {
+    flexDirection: 'column',
+  },
+};
+
+export const logoContainerCSS: CSSObject = {
+  width: '7rem',
+  height: `${7 * 1.5}rem`,
+
+  marginBottom: 0,
+  opacity: 0.9,
+  padding: '2rem',
+  [breakpointKey('small')]: {
+    width: '5rem',
+    height: `${5 * 1.5}rem`,
+  },
+};
+
+export const logoAndVideoContainerCSS: CSSObject = {
+  minWidth: '30vw',
+  maxWidth: '40vw',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-around',
+  [breakpointKey('small')]: {
+    minWidth: '90vw',
+  },
+};
+
+export const punchlineParagraphCSS: CSSObject = {
+  paddingLeft: '5rem',
+  paddingRight: '5rem',
+  textAlign: 'center',
+};
+
+export const mainVideoContainerCSS: CSSObject = {
+  [breakpointKey('normal')]: {
+    minWidth: '40rem',
+    maxWidth: '50rem',
+  },
+  [breakpointKey('small')]: {
+    minWidth: '90vw',
+    padding: '0.2rem',
+    paddingTop: '3rem',
+  },
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+};
+
+export const howDoesItWorkCSS: CSSObject = {
+  [breakpointKey('normal')]: {
+    minWidth: '40rem',
+    maxWidth: '50rem',
+    alignItems: 'flex-start',
+  },
+  [breakpointKey('small')]: {
+    minWidth: '90vw',
+    padding: '0.2rem',
+    paddingTop: '3rem',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  display: 'flex',
+  justifyContent: 'center',
+};
+
+export const howDoesItWorkPartCSS: CSSObject = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};
+
+export const iframeVideoContainerCSS: CSSObject = {
+  ...responsiveContainerInsideCSS,
+  display: 'block',
+  paddingBottom: '56.25%',
+  position: 'relative',
+  height: '0px',
+  overflow: 'hidden',
+  margin: '0px',
+  marginTop: '2rem',
+  marginBottom: '2rem',
+};
+
+export const iframeCSS: CSSObject = {
+  position: 'absolute',
+  top: '0px',
+  left: '0px',
+  width: '100%',
+  height: '100%',
+};
