@@ -61,24 +61,29 @@ export default function SubscriptionConfirmed({
       <div css={containerCSS}>
         <h1 css={titleCSS}>{LOCAL['divTitle']}</h1>
         <p css={subtitleCSS}>{LOCAL['divSubtitle']}</p>
-        <div css={{padding: '1rem'}}>
-        <Link to='https://airtable.com/shrzx2UHeHLxztADT'>{LOCAL['formProblemFallback']}</Link>
+        <div css={{ padding: '1rem' }}>
+          <Link to="https://airtable.com/shrzx2UHeHLxztADT">
+            {LOCAL['formProblemFallback']}
+          </Link>
         </div>
 
         <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
         <iframe
           class="airtable-embed airtable-dynamic-height"
-          src={`https://airtable.com/embed/shrzx2UHeHLxztADT?backgroundColor=purple&prefill_personMail=${subEmail ? subEmail : ''}`}
+          src={`https://airtable.com/embed/shrzx2UHeHLxztADT?backgroundColor=purple&prefill_personMail=${
+            subEmail ? subEmail : ''
+          }`}
           frameborder="0"
           onmousewheel=""
           width="100%"
           height="904px"
           style={{ background: 'transparent', border: '1px solid #ccc' }}
         ></iframe>
-        <div css={{padding: '1rem'}}>
-        <Link to='https://airtable.com/shrzx2UHeHLxztADT'>{LOCAL['formProblemFallback']}</Link>
+        <div css={{ padding: '1rem' }}>
+          <Link to="https://airtable.com/shrzx2UHeHLxztADT">
+            {LOCAL['formProblemFallback']}
+          </Link>
         </div>
-        
 
         {/* <Link to="/" css={buttonCSS}>
           {LOCAL['goBackHome']}

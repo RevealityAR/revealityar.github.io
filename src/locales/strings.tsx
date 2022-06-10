@@ -63,7 +63,6 @@ const stringBuilderEnFr = (arrayOfStrings: MultilangString[]) => {
 };
 
 export const indexPageStrings = stringBuilderEnFr([
-
   StringEnFr('imaginationLimit', 'Give it a try!', `A toi d'essayer !`),
   StringEnFr('howdoesitwork', 'How does it work?', 'Comment ça marche ?'),
   StringEnFr('shoot', 'Shoot', 'Filme'),
@@ -219,7 +218,11 @@ export const indexPageStrings = stringBuilderEnFr([
 ]);
 
 export const subscribedPageStrings = stringBuilderEnFr([
-  StringEnFr('formProblemFallback', `You don't see the form? Click here`, `Le formulaire ne s'affiche pas ? Cliquez ici`),
+  StringEnFr(
+    'formProblemFallback',
+    `You don't see the form? Click here`,
+    `Le formulaire ne s'affiche pas ? Cliquez ici`
+  ),
   StringEnFr('seoTitle', 'Subscription Confirmed', 'Inscription confirmée'),
   StringEnFr('divTitle', 'One more step...', `Encore une étape...`),
   StringEnFr(

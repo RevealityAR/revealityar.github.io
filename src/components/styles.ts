@@ -1,4 +1,4 @@
-import { CSSObject } from "@emotion/react";
+import { CSSObject } from '@emotion/react';
 export const breakpointKey = (value: string): string => {
   if (value === 'small') {
     return `@media (max-width: 61em)`;
@@ -11,5 +11,5 @@ export const breakpointKey = (value: string): string => {
 };
 
 export const basicTransition = (type = 'all'): string => {
-  return  `${type} 250ms cubic-bezier(0.4, 0, 0.2, 1)`
-}
+  return `${type} 250ms cubic-bezier(0.4, 0, 0.2, 1)`;
+};

@@ -85,9 +85,9 @@
 // }
 
 .RevLink {
-margin-top: '2rem';
-margin-bottom: '2rem';
-    @include themedTagA();
+  margin-top: '2rem';
+  margin-bottom: '2rem';
+  @include themedTagA();
   font-size: '4rem';
 }
 .Punchline {

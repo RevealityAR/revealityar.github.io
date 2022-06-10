@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useState } from 'react';
 import { CSSObject } from '@emotion/react';
@@ -15,19 +14,16 @@ import TldpLogo from '../bits/TldpLogo/TldpLogo';
 import AppleIcon from '@mui/icons-material/Apple';
 import AndroidIcon from '@mui/icons-material/Android';
 
-
-import logoClient_nat from '../res/logoClient_nat.webp'
-import logoClient_cube from '../res/logoClient_cube.png'
-import logoClient_saintex from '../res/logoClient_saintex.png'
-import logoClient_snzc from '../res/logoClient_snzc.png'
-import logoClient_aadn from '../res/logoClient_aadn.png'
-import logoPartner_idf from '../res/logoPartner_idf.svg'
-import logoPartner_stationf from '../res/logoPartner_stationf.svg'
-import logoPartner_schoolab from '../res/logoPartner_schoolab.png'
-import logoPartner_polepixel from '../res/logoPartner_polePixel.svg'
-import logoPartner_lincc from '../res/logoPartner_lincc.png'
-
-
+import logoClient_nat from '../res/logoClient_nat.webp';
+import logoClient_cube from '../res/logoClient_cube.png';
+import logoClient_saintex from '../res/logoClient_saintex.png';
+import logoClient_snzc from '../res/logoClient_snzc.png';
+import logoClient_aadn from '../res/logoClient_aadn.png';
+import logoPartner_idf from '../res/logoPartner_idf.svg';
+import logoPartner_stationf from '../res/logoPartner_stationf.svg';
+import logoPartner_schoolab from '../res/logoPartner_schoolab.png';
+import logoPartner_polepixel from '../res/logoPartner_polePixel.svg';
+import logoPartner_lincc from '../res/logoPartner_lincc.png';
 
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
@@ -68,33 +64,40 @@ import subjectMix from './subjectMIX.webm';
 import subjectRawSafariIos from './subjectRAWSafari.mp4';
 import subjectAlphaSafariIos from './subjectALPHASafari.mp4';
 import subjectMixSafariIos from './subjectMIXSafari.mp4';
-import { responsiveContainerCSS, responsiveContainerInsideCSS, joinBetaCallCSS, subjectTitleCSS, subjectVideoCSS, punchlineCSS, mainVideoCSS, clientsLogoGridCSS, clientLogoCSS, imageBackgroundCSS,
-
-
-iconContainerCSS, thirdPageContainerCSS, subtextCSS} from '../styles';
-
+import {
+  responsiveContainerCSS,
+  responsiveContainerInsideCSS,
+  joinBetaCallCSS,
+  subjectTitleCSS,
+  subjectVideoCSS,
+  punchlineCSS,
+  mainVideoCSS,
+  clientsLogoGridCSS,
+  clientLogoCSS,
+  imageBackgroundCSS,
+  iconContainerCSS,
+  thirdPageContainerCSS,
+  subtextCSS,
+} from '../styles';
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
 import RevealityFooter from './../bits/RealFooter/Footer';
 
-
 const CLIENTS_LOGOS = [
-  {imageUrl: logoClient_cube, siteUrl: 'https://lecube.com/', scale : 0.7},
-  {imageUrl: logoClient_nat, siteUrl: 'https://www.natachapaquignon.com/'},
-  {imageUrl: logoClient_saintex, siteUrl: 'https://saintex-reims.com/'},
-  {imageUrl: logoClient_snzc, siteUrl: 'https://en.snzn.org/'},
-  {imageUrl: logoClient_aadn, siteUrl: 'https://aadn.org'},
-
-]
+  { imageUrl: logoClient_cube, siteUrl: 'https://lecube.com/', scale: 0.7 },
+  { imageUrl: logoClient_nat, siteUrl: 'https://www.natachapaquignon.com/' },
+  { imageUrl: logoClient_saintex, siteUrl: 'https://saintex-reims.com/' },
+  { imageUrl: logoClient_snzc, siteUrl: 'https://en.snzn.org/' },
+  { imageUrl: logoClient_aadn, siteUrl: 'https://aadn.org' },
+];
 
 const PARTNERS_LOGOS = [
-
-  {imageUrl: logoPartner_idf, siteUrl: 'https://www.iledefrance.fr'},
-  {imageUrl: logoPartner_stationf, siteUrl: 'https://stationf.co/'},
-  {imageUrl: logoPartner_schoolab, siteUrl: 'https://www.theschoolab.com/'},
-  {imageUrl: logoPartner_polepixel, siteUrl: 'https://polepixel.fr/'},
-  {imageUrl: logoPartner_lincc, siteUrl: 'https://lincc.parisandco.paris/'},
-]
+  { imageUrl: logoPartner_idf, siteUrl: 'https://www.iledefrance.fr' },
+  { imageUrl: logoPartner_stationf, siteUrl: 'https://stationf.co/' },
+  { imageUrl: logoPartner_schoolab, siteUrl: 'https://www.theschoolab.com/' },
+  { imageUrl: logoPartner_polepixel, siteUrl: 'https://polepixel.fr/' },
+  { imageUrl: logoPartner_lincc, siteUrl: 'https://lincc.parisandco.paris/' },
+];
 const MAILCHIMP_URL =
   'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
 const numberOfEventsToShow = 6;
@@ -114,12 +117,6 @@ const icon = {
     strokeWidth: 2,
   },
 };
-
-
-
-
-
-
 
 /*
         <div className={'ResponsiveContainer SpecialAnnouncementBackground'}>
@@ -147,7 +144,6 @@ const icon = {
         </div>
 
         */
-
 
 export default function Index({ data, pageContext: { langCode }, location }) {
   const LOCAL = indexPageStrings[langCode];
@@ -267,13 +263,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
               alignItems: 'flex-start',
             }}
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              css={mainVideoCSS}
-            >
+            <video autoPlay muted loop playsInline css={mainVideoCSS}>
               <source src={demoVideo} type="video/webm" />
               <source src={demoVideoSafari} type="video/mp4" />
             </video>
@@ -378,80 +368,83 @@ export default function Index({ data, pageContext: { langCode }, location }) {
           />
         </div>
 
+        <div css={responsiveContainerCSS}>
+          <div
+            css={{
+              ...responsiveContainerInsideCSS,
+              display: 'block',
+              paddingBottom: '56.25%',
+              position: 'relative',
+              height: '0px',
+              // width: '90vw',
+              overflow: 'hidden',
+              margin: '0px',
+              marginTop: '2rem',
+              marginBottom: '2rem',
+            }}
+          >
+            <iframe
+              css={{
+                position: 'absolute',
+                top: '0px',
+                left: '0px',
+                width: '100%',
+                height: '100%',
+              }}
+              src="https://www.youtube.com/embed/I7a_KLPCZgs?rel=0&color=white&modestbranding=1"
+              title="How to create with Reveality (Video)"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
 
-<div css={responsiveContainerCSS}>
-<div css={{...responsiveContainerInsideCSS, 
-    display: 'block',
-paddingBottom: '56.25%',
-position: 'relative',
-height: '0px',
-// width: '90vw',
-overflow: 'hidden',
-margin: '0px',
-marginTop: '2rem', marginBottom: '2rem'}}>
-  <iframe  css={{
-    position: 'absolute',
-    top: '0px',
-    left: '0px',
-    width: '100%',
-    height: '100%'
-  }}
-   src="https://www.youtube.com/embed/I7a_KLPCZgs?rel=0&color=white&modestbranding=1" title="How to create with Reveality (Video)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-</iframe>
-  </div>
-  </div>
+        <h3 css={punchlineCSS}>Ils travaillent avec nous</h3>
+        <div css={responsiveContainerCSS}>
+          <div css={responsiveContainerInsideCSS}>
+            <div css={clientsLogoGridCSS}>
+              {CLIENTS_LOGOS.map((logo) => {
+                return (
+                  <a
+                    key={logo.siteUrl}
+                    css={{
+                      ...clientLogoCSS,
+                      ...imageBackgroundCSS(logo.imageUrl),
+                      transform: `scale(${logo.scale ? logo.scale : 1})`,
+                    }}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    href={logo.siteUrl}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
 
-
-
-
-  <h3 css={punchlineCSS}>Ils travaillent avec nous</h3>
-  <div css={responsiveContainerCSS}>
-<div css={responsiveContainerInsideCSS}>
-  <div css={
-    clientsLogoGridCSS
-  }>
-{CLIENTS_LOGOS.map(logo => {
-  return <a
-  key={logo.siteUrl}
-  css={{...clientLogoCSS, ...imageBackgroundCSS(logo.imageUrl), transform: `scale(${logo.scale ? logo.scale : 1})`}}
-  target="_blank"
-  rel="noreferrer noopener"
-  href={logo.siteUrl}
-/> 
-
-})}
-  
-
-  </div>
-  </div>
-</div>
-
-<h3 css={punchlineCSS}>Ils nous accompagnent</h3>
-  <div css={responsiveContainerCSS}>
-<div css={responsiveContainerInsideCSS}>
-  <div css={
-    clientsLogoGridCSS
-  }>
-{PARTNERS_LOGOS.map(logo => {
-  return <a
-  key={logo.siteUrl}
-  css={{...clientLogoCSS, ...imageBackgroundCSS(logo.imageUrl), transform: `scale(${logo.scale ? logo.scale : 1})`}}
-  target="_blank"
-  rel="noreferrer noopener"
-  href={logo.siteUrl}
-/> 
-
-})}
-  
-
-  </div>
-  </div>
-</div>
-
-
-
-
-
+        <h3 css={punchlineCSS}>Ils nous accompagnent</h3>
+        <div css={responsiveContainerCSS}>
+          <div css={responsiveContainerInsideCSS}>
+            <div css={clientsLogoGridCSS}>
+              {PARTNERS_LOGOS.map((logo) => {
+                return (
+                  <a
+                    key={logo.siteUrl}
+                    css={{
+                      ...clientLogoCSS,
+                      ...imageBackgroundCSS(logo.imageUrl),
+                      transform: `scale(${logo.scale ? logo.scale : 1})`,
+                    }}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    href={logo.siteUrl}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </MainLayout>
   );
