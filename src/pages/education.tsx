@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import MainLayout from '../layout/MainLayout';
 import SEO from '../bits/SEO/SEO';
-import { indexPageStrings } from '../locales/strings';
+import { educationPageStrings } from '../locales/strings';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 
@@ -38,7 +38,7 @@ const MAILCHIMP_URL =
   'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
 
 export default function Index({ data, pageContext: { langCode }, location }) {
-  const LOCAL = indexPageStrings[langCode];
+  const LOCAL = educationPageStrings[langCode];
   const posts = data.allMdx.edges;
   const localesOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -58,7 +58,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
         <h1
           css={{ ...subjectTitleCSS, textAlign: 'center', marginTop: '4rem' }}
         >
-          Une solution complète pour initier à la Réalité Augmentée
+          {LOCAL['punchline']}
         </h1>
 
         <div css={responsiveContainerCSS}>
@@ -125,12 +125,11 @@ export default function Index({ data, pageContext: { langCode }, location }) {
                   fontSize="large"
                   style={{ color: '#649de3' }}
                 />
-                <span style={{ marginTop: '1em' }}>Simple, Intuitif</span>
+                <span style={{ marginTop: '1em' }}>{LOCAL['Simple, Intuitif']}</span>
               </h3>
               <p
                 css={subtextCSS}
-              >{`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.
-`}</p>
+              >{LOCAL[`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.`]}</p>
             </div>
 
             <div css={thirdPageContainerCSS}>
@@ -139,11 +138,11 @@ export default function Index({ data, pageContext: { langCode }, location }) {
                   fontSize="large"
                   style={{ color: '#649de3' }}
                 />
-                <span style={{ marginTop: '1em' }}>{`Flow Rapide`}</span>
+                <span style={{ marginTop: '1em' }}>{LOCAL[`Flow Rapide`]}</span>
               </h3>
               <p
                 css={subtextCSS}
-              >{`5 minutes suffisent pour créer une scène. C'est du temps gagné pour tester, explorer, recommencer.`}</p>
+              >{LOCAL[`5 minutes suffisent pour créer une scène. C'est du temps gagné pour tester, explorer, recommencer.`]}</p>
             </div>
 
             <div css={thirdPageContainerCSS}>
@@ -152,11 +151,11 @@ export default function Index({ data, pageContext: { langCode }, location }) {
                   fontSize="large"
                   style={{ color: '#649de3' }}
                 />
-                <span style={{ marginTop: '1em' }}>{`Restitution simple`}</span>
+                <span style={{ marginTop: '1em' }}>{LOCAL[`Restitution simple`]}</span>
               </h3>
               <p
                 css={subtextCSS}
-              >{`Récupérez les créations en vidéo, diffusables sur toutes les plateformes existantes.`}</p>
+              >{LOCAL[`Récupérez les créations en vidéo, diffusables sur toutes les plateformes existantes.`]}</p>
             </div>
 
             <div css={thirdPageContainerCSS}>
@@ -166,11 +165,10 @@ export default function Index({ data, pageContext: { langCode }, location }) {
                   style={{ color: '#649de3' }}
                 />
                 <span style={{ marginTop: '1em' }}>
-                  {`Accessible à la maison`}
+                  {LOCAL[`Accessible à la maison`]}
                 </span>
               </h3>
-              <p css={subtextCSS}>{`
-L’appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s’emparer de l’outil pendant, et après l’atelier.`}</p>
+              <p css={subtextCSS}>{LOCAL[`L’appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s’emparer de l’outil pendant, et après l’atelier.`]}</p>
             </div>
 
             <div css={thirdPageContainerCSS}>
@@ -180,12 +178,12 @@ L’appli fonctionne sur tous les téléphones gratuitement. Les participants pe
                   style={{ color: '#649de3' }}
                 />
                 <span style={{ marginTop: '1em' }}>
-                  {`Mise en place facile`}
+                  {LOCAL[`Mise en place facile`]}
                 </span>
               </h3>
               <p
                 css={subtextCSS}
-              >{`Aucune contrainte d’espace, de matériel ou d'éclairage pour commencer à créer.`}</p>
+              >{LOCAL[`Aucune contrainte d’espace, de matériel ou d'éclairage pour commencer à créer.`]}</p>
             </div>
             <div css={thirdPageContainerCSS}>
               <h3 css={{ ...punchlineFeatureCSS, ...iconContainerCSS }}>
@@ -194,13 +192,13 @@ L’appli fonctionne sur tous les téléphones gratuitement. Les participants pe
               </h3>
               <p
                 css={subtextCSS}
-              >{`Déroulez vos ateliers et accédez au travail des élèves depuis l'appli.`}</p>
+              >{LOCAL[`Déroulez vos ateliers et accédez au travail des élèves depuis l'appli.`]}</p>
             </div>
           </div>
         </div>
 
         <h2 css={{ ...subjectTitleCSS, textAlign: 'center' }}>
-          Ils participent au projet
+          {LOCAL['Ils participent au projet']}
         </h2>
 
         <div css={responsiveContainerCSS}>
@@ -243,7 +241,7 @@ L’appli fonctionne sur tous les téléphones gratuitement. Les participants pe
 
         <div css={{ marginTop: '2rem', marginBottom: '2rem' }}>
           <Link to={'/'} className={'RevLink'}>
-            Retour à l'accueil
+            {LOCAL[`Retour à l'accueil`]}
           </Link>
         </div>
       </div>

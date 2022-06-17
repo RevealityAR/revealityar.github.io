@@ -217,6 +217,62 @@ export const indexPageStrings = stringBuilderEnFr([
   ),
 ]);
 
+
+
+
+
+
+export const educationPageStrings = stringBuilderEnFr([
+  StringEnFr(
+    'joinBetaRev',
+    'Join beta on Android and iPhone',
+    'Rejoins la beta sur Android et iPhone'
+  ),
+  StringEnFr(`Déroulez vos ateliers et accédez au travail des élèves depuis l'appli.`,
+  `Déroulez vos ateliers et accédez au travail des élèves depuis l'appli.`,
+  `Déroulez vos ateliers et accédez au travail des élèves depuis l'appli.`),
+  StringEnFr(`Aucune contrainte d'espace, de matériel ou d'éclairage pour commencer à créer.`,`Aucune contrainte d'espace, de matériel ou d'éclairage pour commencer à créer.`,`Aucune contrainte d'espace, de matériel ou d'éclairage pour commencer à créer.`),
+  StringEnFr(`Mise en place facile`,`Mise en place facile`,`Mise en place facile`),
+  StringEnFr(`
+  L'appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s'emparer de l'outil pendant, et après l'atelier.`,`
+  L'appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s'emparer de l'outil pendant, et après l'atelier.`,`
+  L'appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s'emparer de l'outil pendant, et après l'atelier.`),
+  StringEnFr(`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.
+  `,`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.
+  `,`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.
+  `),
+  StringEnFr(`Flow Rapide`,`Flow Rapide`,`Flow Rapide`),
+  StringEnFr(`5 minutes suffisent pour créer une scène. C'est du temps gagné pour tester, explorer, recommencer.`,`5 minutes suffisent pour créer une scène. C'est du temps gagné pour tester, explorer, recommencer.`,`5 minutes suffisent pour créer une scène. C'est du temps gagné pour tester, explorer, recommencer.`),
+  StringEnFr(`Restitution simple`,`Restitution simple`,`Restitution simple`),
+  StringEnFr(`Récupérez les créations en vidéo, diffusables sur toutes les plateformes existantes.`,`Récupérez les créations en vidéo, diffusables sur toutes les plateformes existantes.`,`Récupérez les créations en vidéo, diffusables sur toutes les plateformes existantes.`),
+  StringEnFr(`Accessible à la maison`,`Accessible à la maison`,`Accessible à la maison`),
+  StringEnFr(`Retour à l'accueil`, `Retour à l'accueil`, `Retour à l'accueil`),
+  StringEnFr('Ils participent au projet', 'Ils participent au projet', 'Ils participent au projet'),
+  StringEnFr('punchline', 'Une solution complète pour initier à la Réalité Augmentée', 'Une solution complète pour initier à la Réalité Augmentée'),
+  StringEnFr(
+    'Simple, Intuitif',
+    `Easy to use`,
+    `Simple, Intuitif`
+  ),
+  StringEnFr(`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.`,`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.`,`Un smartphone et une appli, c'est tout ! Les participants peuvent créer de A à Z sans être bloqués techniquement.`),
+  StringEnFr('seoTitle', 'Subscription Confirmed', 'Inscription confirmée'),
+  StringEnFr('divTitle', 'One more step...', `Encore une étape...`),
+
+  StringEnFr(`L’appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s’emparer de l’outil pendant, et après l’atelier.`,`L’appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s’emparer de l’outil pendant, et après l’atelier.`,`L’appli fonctionne sur tous les téléphones gratuitement. Les participants peuvent s’emparer de l’outil pendant, et après l’atelier.`),
+  StringEnFr(
+    'divSubtitle',
+    `Don't leave us yet! We need you to fill this form to access the beta`,
+    `Ne partez pas ! Veuillez remplir ce formulaire pour votre accès beta`
+  ),
+  StringEnFr(`Aucune contrainte d’espace, de matériel ou d'éclairage pour commencer à créer.`,`Aucune contrainte d’espace, de matériel ou d'éclairage pour commencer à créer.`,`Aucune contrainte d’espace, de matériel ou d'éclairage pour commencer à créer.`),
+  StringEnFr('goBackHome', 'Go back Home', `Retour Accueil`),
+]);
+
+
+
+
+
+
 export const subscribedPageStrings = stringBuilderEnFr([
   StringEnFr(
     'formProblemFallback',
