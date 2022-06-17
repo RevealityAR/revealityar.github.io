@@ -38,6 +38,16 @@ import {
   clientsLogoGridCSS,
   clientLogoCSS,
   imageBackgroundCSS,
+  mainViewCSS,
+  mainViewInsideCSS,
+  logoAndVideoContainerCSS,
+  logoContainerCSS,
+  punchlineParagraphCSS,
+  mainVideoContainerCSS,
+  howDoesItWorkCSS,
+  howDoesItWorkPartCSS,
+  iframeVideoContainerCSS,
+  iframeCSS
 } from '../styles';
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
