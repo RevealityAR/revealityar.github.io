@@ -89,6 +89,7 @@ export default function MainLayout({ children, language, location }) {
   if (language !== 'fr' && language !== 'en') {
     language = defaultLang;
   }
+
   const LOCAL = indexPageStrings[language];
   // Skip build, Browsers only
   if (typeof window !== 'undefined') {
