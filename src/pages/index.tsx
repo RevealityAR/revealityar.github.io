@@ -4,16 +4,13 @@ import { graphql } from 'gatsby';
 import MainLayout from '../layout/MainLayout';
 import SEO from '../bits/SEO/SEO';
 import { indexPageStrings } from '../locales/strings';
-
 import './index.scss';
 import './PhoneMockup.scss';
 import './basics.scss';
 import './ShowcasePage.scss';
-
-import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
 import demoVideo from './mixVitrine.webm';
 import demoVideoSafari from './mixVitrineSafari.mp4';
-
+import AppStoreBadges from './../components/AppStoreBadges/AppStoreBadges';
 import subjectRaw from './subjectRAW.webm';
 import subjectAlpha from './subjectALPHA.webm';
 import subjectMix from './subjectMIX.webm';
@@ -52,8 +49,6 @@ import {
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
 
-const MAILCHIMP_URL =
-  'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
 
 export default function Index({ data, pageContext: { langCode }, location }) {
   const LOCAL = indexPageStrings[langCode];
@@ -84,12 +79,8 @@ export default function Index({ data, pageContext: { langCode }, location }) {
                 justifyContent: 'center',
               }}
             >
-              <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
-              <MailForm
-                uniqueId={'footerForm'}
-                mailchimpURL={MAILCHIMP_URL}
-                uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-              />
+              <h3 css={joinBetaCallCSS}>{LOCAL['getApp']}</h3>
+              <AppStoreBadges/>
             </div>
           </div>
 
@@ -139,12 +130,8 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             justifyContent: 'center',
           }}
         >
-          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
-          <MailForm
-            uniqueId={'footerForm'}
-            mailchimpURL={MAILCHIMP_URL}
-            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-          />
+          <h3 css={joinBetaCallCSS}>{LOCAL['getApp']}</h3>
+          <AppStoreBadges/>
         </div>
 
         <div css={responsiveContainerCSS}>

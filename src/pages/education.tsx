@@ -16,7 +16,7 @@ import './PhoneMockup.scss';
 import './basics.scss';
 import './ShowcasePage.scss';
 
-import MailForm from '../bits/mailchimpFormReveality/mailchimpFormPrivacyFriendly';
+
 
 import {
   responsiveContainerCSS,
@@ -33,6 +33,7 @@ import {
 } from '../styles';
 
 import { CLIENTS_LOGOS } from '../logos';
+import AppStoreBadges from '../components/AppStoreBadges/AppStoreBadges';
 
 const MAILCHIMP_URL =
   'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb';
@@ -100,12 +101,8 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             marginBottom: '4rem',
           }}
         >
-          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
-          <MailForm
-            uniqueId={'footerForm'}
-            mailchimpURL={MAILCHIMP_URL}
-            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-          />
+          <h3 css={joinBetaCallCSS}>{LOCAL['getApp']}</h3>
+         <AppStoreBadges/>
         </div>
 
         <div css={responsiveContainerCSS}>
@@ -231,12 +228,8 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             justifyContent: 'center',
           }}
         >
-          <h3 css={joinBetaCallCSS}>{LOCAL['joinBetaRev']}</h3>
-          <MailForm
-            uniqueId={'footerForm'}
-            mailchimpURL={MAILCHIMP_URL}
-            uniqueAntiSpamId={'b_8b4e477d425a1fcb90d90a287_7331d8e0bb'}
-          />
+          <h3 css={joinBetaCallCSS}>{LOCAL['getApp']}</h3>
+          <AppStoreBadges/>
         </div>
 
         <div css={{ marginTop: '2rem', marginBottom: '2rem' }}>
