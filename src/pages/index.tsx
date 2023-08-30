@@ -4,23 +4,13 @@ import { graphql } from 'gatsby';
 import MainLayout from '../layout/MainLayout';
 import SEO from '../bits/SEO/SEO';
 import { indexPageStrings } from '../locales/strings';
-import './index.scss';
-import './PhoneMockup.scss';
-import './basics.scss';
-import './ShowcasePage.scss';
 import demoVideo from './mixVitrine.webm';
 import demoVideoSafari from './mixVitrineSafari.mp4';
 import AppStoreBadges from './../components/AppStoreBadges/AppStoreBadges';
 import subjectRaw from './subjectRAW.webm';
 import subjectAlpha from './subjectALPHA.webm';
 import subjectMix from './subjectMIX.webm';
-
-// import subjectRawSafariIos from './subjectRAW.mp4';
-// import subjectAlphaSafariIos from './subjectALPHA.mp4';
-// import subjectMixSafariIos from './subjectMIX.mp4';
-
 import { PARTNERS_LOGOS, CLIENTS_LOGOS } from '../logos';
-
 import subjectRawSafariIos from './subjectRAWSafari.mp4';
 import subjectAlphaSafariIos from './subjectALPHASafari.mp4';
 import subjectMixSafariIos from './subjectMIXSafari.mp4';
@@ -44,7 +34,8 @@ import {
   howDoesItWorkCSS,
   howDoesItWorkPartCSS,
   iframeVideoContainerCSS,
-  iframeCSS
+  iframeCSS,
+  badgeContainerCSS
 } from '../styles';
 
 import RevealityLogo from '../bits/RevealityLogo/RevealityLogo';
@@ -72,12 +63,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
             <p css={punchlineParagraphCSS}>{LOCAL['descriptionPunchline']}</p>
             <p></p>
             <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
+              css={badgeContainerCSS}
             >
               <h3 css={joinBetaCallCSS}>{LOCAL['getApp']}</h3>
               <AppStoreBadges/>

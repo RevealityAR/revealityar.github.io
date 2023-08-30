@@ -77,7 +77,7 @@ export default function SubscriptionConfirmed({
           onmousewheel=""
           width="100%"
           height="904px"
-          style={{ background: 'transparent', border: '1px solid #ccc' }}
+          css={{ background: 'transparent', border: '1px solid #ccc' }}
         ></iframe>
         <div css={{ padding: '1rem' }}>
           <Link to="https://airtable.com/shrzx2UHeHLxztADT">

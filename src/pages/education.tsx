@@ -11,11 +11,6 @@ import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import TouchAppOutlinedIcon from '@mui/icons-material/TouchAppOutlined';
 import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
 
-import './index.scss';
-import './PhoneMockup.scss';
-import './basics.scss';
-import './ShowcasePage.scss';
-
 
 
 import {
@@ -30,6 +25,8 @@ import {
   iconContainerCSS,
   thirdPageContainerCSS,
   subtextCSS,
+  revLinkCSS,
+  badgeContainerCSS,
 } from '../styles';
 
 import { CLIENTS_LOGOS } from '../logos';
@@ -93,11 +90,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
         </div>
 
         <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+          css={{...badgeContainerCSS,
             marginBottom: '4rem',
           }}
         >
@@ -122,7 +115,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
                   fontSize="large"
                   style={{ color: '#649de3' }}
                 />
-                <span style={{ marginTop: '1em' }}>{LOCAL['Simple, Intuitif']}</span>
+                <span css={{ marginTop: '1em' }}>{LOCAL['Simple, Intuitif']}</span>
               </h3>
               <p
                 css={subtextCSS}
@@ -233,7 +226,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
         </div>
 
         <div css={{ marginTop: '2rem', marginBottom: '2rem' }}>
-          <Link to={'/'} className={'RevLink'}>
+          <Link to={'/'} css={revLinkCSS}>
             {LOCAL[`Retour à l'accueil`]}
           </Link>
         </div>

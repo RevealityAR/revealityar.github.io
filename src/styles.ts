@@ -1,10 +1,26 @@
 import { CSSObject } from '@emotion/react';
 import { breakpointKey, basicTransition } from './components/styles';
+import { themedACSS } from './bits/styles/styles';
 
 export const responsiveContainerCSS: CSSObject = {
   display: 'flex',
   justifyContent: 'center',
 };
+
+
+export const revLinkCSS: CSSObject = {
+  marginTop: '2rem',
+  marginBottom: '2rem',
+  ...themedACSS('blue'),
+  fontSize: '4rem'
+}
+export const badgeContainerCSS: CSSObject = {
+  
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
 
 export const responsiveContainerInsideCSS: CSSObject = {
   [breakpointKey('normal')]: {
