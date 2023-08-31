@@ -1,4 +1,5 @@
-const siteManifest = require('./siteManifest');
+// import type { GatsbyConfig } from "gatsby";
+const siteManifest = require('./site-manifest.js')
 
 module.exports = {
   siteMetadata: {
@@ -17,18 +18,21 @@ module.exports = {
     socialLinks: {
       twitter: siteManifest.socialLinks.twitter,
       facebook: siteManifest.socialLinks.facebook,
-      linkedin: siteManifest.socialLinks.linkedin,
       github: siteManifest.socialLinks.github,
       instagram: siteManifest.socialLinks.instagram,
       vimeo: siteManifest.socialLinks.vimeo,
       youtube: siteManifest.socialLinks.youtube,
       soundcloud: siteManifest.socialLinks.soundcloud,
-      tiktok: siteManifest.socialLinks.tiktok,
+      linkedin: siteManifest.socialLinks.linkedin,
+      tiktok: siteManifest.socialLinks.tiktok
     },
   },
 
   plugins: [
-    `gatsby-plugin-image`,
+    'gatsby-plugin-extract-image-colors',
+
+    `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -41,34 +45,32 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        extensions: [`.mdx`],
-        gatsbyRemarkPlugins: [
-          `gatsby-transformer-sharp`,
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin: 0`,
-            },
-          },
-
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-          },
+        plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 1920,
+              maxWidth: 800,
             },
           },
-        ], // just in case those previously mentioned remark plugins sound cool :)
-        // defaultLayouts: {
-        //   default: null,//require.resolve("./src/layout/MdxBasic.js"),
-        // },
+        ],
+      },
+    },
+    `gatsby-plugin-image`,
+
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
 
@@ -78,7 +80,6 @@ module.exports = {
     'gatsby-plugin-offline',
     `gatsby-plugin-catch-links`,
 
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -86,35 +87,6 @@ module.exports = {
         name: 'pages',
       },
     },
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     plugins: [
-    //       {
-    //         resolve: `gatsby-remark-images`,
-    //         options: {
-    //           // It's important to specify the maxWidth (in pixels) of
-    //           // the content container as this plugin uses this as the
-    //           // base for generating different widths of each image.
-    //           maxWidth: 1920,
-    //         },
-    //       },
-    //       {
-    //         resolve: `gatsby-remark-responsive-iframe`,
-    //         options: {
-    //           wrapperStyle: `margin: 0`,
-    //         },
-    //       },
-
-    //       {
-    //         resolve: 'gatsby-remark-copy-linked-files',
-    //       },
-    //     ], // just in case those previously mentioned remark plugins sound cool :)
-    //   },
-    // },
-
-    `gatsby-plugin-sharp`, // For res processing
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -128,6 +100,7 @@ module.exports = {
       },
     },
 
+    // TODO: disabled for updates
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -150,14 +123,5 @@ module.exports = {
     },
 
     `gatsby-plugin-emotion`,
-
-    // TODO: still used?
-    {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint:
-          'https://protonmail.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb',
-      },
-    },
   ],
-};
+}

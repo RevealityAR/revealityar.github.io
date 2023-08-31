@@ -1,15 +1,12 @@
-import { graphql } from 'gatsby';
+import { graphql } from 'gatsby'
 
 export const gatImage = graphql`
   fragment gatImage on File {
     childImageSharp {
-      fluid(maxHeight: 1400) {
-        ...GatsbyImageSharpFluid
-        src
-      }
+      gatsbyImageData(layout: FIXED, maxHeight: 1400)
     }
   }
-`;
+`
 
 export const modernGatImage = graphql`
   fragment modernGatImage on File {
@@ -23,4 +20,4 @@ export const modernGatImage = graphql`
       full: gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-`;
+`

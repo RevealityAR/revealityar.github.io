@@ -4,13 +4,17 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// This file generates all the pages and all the stuff
+// This is where we handle i18n and custom pathes for it
+// And custom layouts
+
 // You can delete this file if you're not using it
+
+// WORKAROUND : cannot import lang codes directly from typescript code in src because here we use node without es6-etc support.
 // import { supportedLangs, defaultLang } from './src/locales/locales';
-const path = require('path');
-const { createRemoteFileNode } = require('gatsby-source-filesystem');
-// BIG WORKAROUND : cannot import lang codes directly from typescript code in src because here we use node without es6-etc support.
-// So re-recrate data here
-// TODO
+// So re-recrate types
+const defaultLangCode = 'en'
+
 const supportedLangs = {
   ['en']: {
     urlPrefix: '',
@@ -20,16 +24,96 @@ const supportedLangs = {
     urlPrefix: 'fr',
     humanName: 'Français',
   },
-};
-const defaultLangCode = 'en';
+}
+// WORKAROUND END
 
 const LAYOUTS = {
   page: 'page',
   article: 'article',
-};
+}
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
-  const { createTypes, printTypeDefinitions } = actions;
+const path = require('path')
+const layoutPage = path.resolve(
+  `./src/bits/Rev/LayoutMdxPage/LayoutMdxPage.tsx`
+)
+const layoutArticle = path.resolve(
+  `./src/bits/Rev/LayoutMdxArticle/LayoutMdxArticle.tsx`
+)
+
+/**
+ * Max's i18n implementation for gatsby (mdx + normal pages)
+ * @param {*} node
+ * @returns language prefix for URL (is empty for default language)
+ */
+const getUrlPrefix = (node) => {
+  const initialLanguage = node.frontmatter.language
+  let languageUrlPrefix = ''
+  // Default language if not defined
+  if (initialLanguage === void 0 || initialLanguage === null) {
+    console.info(
+      'No language field in markdown, select default language:' +
+        defaultLangCode
+    )
+    node.frontmatter.language = defaultLangCode
+  }
+  console.info(`got language ${node.frontmatter.language}`)
+
+  let foundALanguageOtherThanDefault = false
+  const language = node.frontmatter.language
+  for (let key of Object.keys(supportedLangs)) {
+    if (language === key && language !== defaultLangCode) {
+      languageUrlPrefix = `/${supportedLangs[key].urlPrefix}`
+      foundALanguageOtherThanDefault = true
+      break
+    }
+  }
+
+  if (!foundALanguageOtherThanDefault && language !== defaultLangCode) {
+    console.warn(
+      `Unhandled language for markdown: ${node.frontmatter.language}. No path change (could conflict with default)`
+    )
+  }
+  return languageUrlPrefix
+}
+
+// Utils
+
+// false if no previous or no next
+const previousPostLooker = (node, index, mdxArticles) => {
+  let indexToLook = index - 1
+  while (0 <= indexToLook) {
+    // Only lists articles in same language
+    if (
+      mdxArticles[indexToLook].node.frontmatter.language ==
+      node.frontmatter.language
+    ) {
+      return mdxArticles[indexToLook].node
+    }
+    indexToLook--
+  }
+  return false
+}
+
+const nextPostLooker = (node, index, mdxArticles) => {
+  let indexToLook = index + 1
+  while (indexToLook <= mdxArticles.length - 1) {
+    // Only lists articles in same language
+    if (
+      mdxArticles[indexToLook].node.frontmatter.language ==
+      node.frontmatter.language
+    ) {
+      return mdxArticles[indexToLook].node
+    }
+    indexToLook++
+  }
+  return false
+}
+
+/**
+ * Add custom types to markdown
+ */
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes, printTypeDefinitions } = actions
 
   createTypes(`
     type Mdx implements Node {
@@ -42,109 +126,57 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       description: String!
       language: String!
       subtitle: String
+      tags: String!
       date: Date @dateformat
       category: String,
+      priority: Float!
       image: File @fileByRelativePath
-      embeddedImagesRemote: [File] @link(by: "url")
       embeddedImagesLocal: [File] @fileByRelativePath
     }
-    `);
+    `)
 
   // Keep track of types ? What for?
-  printTypeDefinitions({ path: './typeDefs.txt' });
-};
+  printTypeDefinitions({ path: './typeDefs.txt' })
+}
 
-exports.onCreateNode = ({
-  node,
-  createNodeId,
-  actions: { createNode },
-  cache,
-  store,
-}) => {
-  // For markdown/Mdx files, check for language field and change url accordingly
-  // No URL change for default language
-  // Other languages get a /langCode/ prefix on their URLs
-  if (node.internal.type === 'Mdx') {
-    const initialLanguage = node.frontmatter.language;
-    let languageUrlPrefix = '';
-    // Default language if not defined
-    if (initialLanguage === void 0 || initialLanguage === null) {
-      console.info(
-        'No language field in markdown, select default language:' +
-          defaultLangCode
-      );
-      node.frontmatter.language = defaultLangCode;
-    }
-
-    let foundALanguageOtherThanDefault = false;
-    const language = node.frontmatter.language;
-    for (let key of Object.keys(supportedLangs)) {
-      if (language === key && language !== defaultLangCode) {
-        languageUrlPrefix = `/${supportedLangs[key].urlPrefix}`;
-        foundALanguageOtherThanDefault = true;
-        break;
-      }
-    }
-
-    if (!foundALanguageOtherThanDefault && language !== defaultLangCode) {
-      console.warn(
-        `Unhandled language for markdown: ${node.frontmatter.language}. No path change (could conflict with default)`
-      );
-      // return;
-    }
-    node.frontmatter.path = `${languageUrlPrefix}${node.frontmatter.path}`;
-  }
-
-  // Fetch remote images if any
-  if (
-    node.internal.type === 'Mdx' &&
-    node.frontmatter &&
-    node.frontmatter.embeddedImagesRemote
-  ) {
-    return Promise.all(
-      node.frontmatter.embeddedImagesRemote.map((url) => {
-        try {
-          return createRemoteFileNode({
-            url,
-            parentNodeId: node.id,
-            createNode,
-            createNodeId,
-            cache,
-            store,
-          });
-        } catch (error) {
-          console.error(error);
-        }
-      })
-    );
-  }
-};
-
-// Fired after page creation
-// used to detect JS pages and create their languages variants
+/**
+ * Fired after page creation
+ * used to detect JS pages and create their languages variants
+ */
 exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
+  const { createPage, deletePage } = actions
 
-  console.info(`on create ${page.path}`);
-  // If the component path is .mdx, it means the gatsby-plugin-mdx used its default layout.
-  // We don't want any default pages to avoid dirty duplicates
-  // So remove it !
-  if (page.componentPath.includes('.mdx')) {
-    deletePage(page);
-    return;
+  // -- Filter out any pages created by mdx plugin with the default layout
+  // We're taking care of it ourselves in CreatePages function
+  // Rules : if there is a 20 in path (meaning has not used custom path), remove
+  // If there is a page- (same), remove
+  // If
+
+  if (page.path.includes('20')) {
+    deletePage(page)
+    return
   }
+  if (page.path.includes('index')) {
+    deletePage(page)
+    return
+  }
+  if (page.path.includes('page-')) {
+    deletePage(page)
+    return
+  }
+
   if (page.context.langCode === void 0) {
     console.info(
       `got a root page with no lang context. ${page.path} Delete page and Create one for each language`
-    );
+    )
     return new Promise((resolve) => {
-      deletePage(page);
+      deletePage(page)
 
       Object.keys(supportedLangs).map((langCode) => {
         const localizedPath =
           langCode === defaultLangCode
             ? page.path
-            : supportedLangs[langCode].urlPrefix + page.path;
+            : supportedLangs[langCode].urlPrefix + page.path
 
         return createPage({
           component: page.component,
@@ -152,23 +184,26 @@ exports.onCreatePage = ({ page, actions }) => {
           context: {
             langCode: langCode,
           },
-        });
-      });
-      resolve();
-    });
+        })
+      })
+      resolve()
+    })
   }
-};
+}
 
 /// ---------------- Custom page generation for markdown files
+/**
+ * Create our own pages
+ */
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
-  const layoutPage = path.resolve(`src/layout/MdxPage.js`);
-  const layoutArticle = path.resolve(`src/layout/MdxArticle.js`);
+  const { createPage } = actions
 
+  // Fetch data from Graphql
+  // Sort by priority for prev/next post, for them to be the same than on homepage
   return graphql(`
     {
       allMdx(
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { frontmatter: { priority: ASC } }
         limit: 1000
         filter: { frontmatter: { category: { ne: "hidden" } } }
       ) {
@@ -180,92 +215,71 @@ exports.createPages = ({ actions, graphql }) => {
               title
               language
             }
+            internal {
+              contentFilePath
+            }
           }
         }
       }
     }
   `).then((result) => {
     if (result.errors) {
-      return Promise.reject(result.errors);
+      console.error('got error', result.errors)
+      return Promise.reject(result.errors)
     }
 
-    // Actually creating the page
-    const allPages = result.data.allMdx.edges;
+    const allPages = result.data.allMdx.edges
 
     const mdxPages = allPages.filter(
       (edge) => edge.node.frontmatter.layout === LAYOUTS.page
-    );
+    )
 
     const mdxArticles = allPages.filter(
       (edge) => edge.node.frontmatter.layout === LAYOUTS.article
-    );
+    )
 
     const others = allPages.filter(
       (edge) =>
         Object.values(LAYOUTS).indexOf(edge.node.frontmatter.layout) !== -1
-    );
+    )
 
     if (0 < others.length) {
-      console.warn('found pages with unhandled layouts. Will ignore them:');
-      console.warn(others);
+      console.warn('found pages with unhandled layouts. Will ignore them:')
+      console.warn(JSON.stringify(others))
     }
 
     mdxArticles.forEach(({ node }, index) => {
-      // false if no previous or no next
-      const previousPostLooker = () => {
-        let indexToLook = index - 1;
-        while (0 <= indexToLook) {
-          // Only lists articles in same language
-          if (
-            mdxArticles[indexToLook].node.frontmatter.language ==
-            node.frontmatter.language
-          ) {
-            return mdxArticles[indexToLook].node;
-          }
-          indexToLook--;
-        }
-        return false;
-      };
-
-      const nextPostLooker = () => {
-        let indexToLook = index + 1;
-        while (indexToLook <= mdxArticles.length - 1) {
-          // Only lists articles in same language
-          if (
-            mdxArticles[indexToLook].node.frontmatter.language ==
-            node.frontmatter.language
-          ) {
-            return mdxArticles[indexToLook].node;
-          }
-          indexToLook++;
-        }
-        return false;
-      };
-
-      const previousPost = previousPostLooker();
-      const nextPost = nextPostLooker();
-
-      createPage({
-        path: node.frontmatter.path,
-        component: layoutArticle,
-        context: {
-          previousPost,
-          nextPost,
-          langCode: node.frontmatter.language,
-        }, // additional data can be passed via context
-      });
-    }); // foreach article
+      const previousPost = previousPostLooker(node, index, mdxArticles)
+      const nextPost = nextPostLooker(node, index, mdxArticles)
+      const urlPrefix = getUrlPrefix(node)
+      const markdownPath = node.frontmatter.path
+      try {
+        createPage({
+          path: `${urlPrefix}${node.frontmatter.path}`,
+          component: `${layoutArticle}?__contentFilePath=${node.internal.contentFilePath}`,
+          context: {
+            markdownPath,
+            previousPost,
+            nextPost,
+            langCode: node.frontmatter.language,
+          }, // additional data can be passed via context
+        })
+      } catch (e) {
+        console.error('well it failed', e)
+      }
+    }) // foreach article
 
     mdxPages.forEach(({ node }) => {
-      console.log('hello creating');
+      const urlPrefix = getUrlPrefix(node)
+      const markdownPath = node.frontmatter.path
       createPage({
-        path: node.frontmatter.path,
-        component: layoutPage,
-        context: { langCode: node.frontmatter.language }, // additional data can be passed via context
-      });
-    });
-  });
-};
+        path: `${urlPrefix}${node.frontmatter.path}`,
+        component: `${layoutPage}?__contentFilePath=${node.internal.contentFilePath}`,
+        context: { markdownPath, langCode: node.frontmatter.language }, // additional data can be passed via context
+      })
+    })
+  })
+}
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
@@ -278,6 +292,6 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           },
         ],
       },
-    });
+    })
   }
-};
+}

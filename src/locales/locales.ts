@@ -1,20 +1,19 @@
-export type LangCode = 'en' | 'fr';
+import { LangCode, SupportedLangs } from "../bits/types";
 
-export interface LangSettings {
-  urlPrefix: string;
-  humanName: string;
-  default?: boolean;
-}
+// Define your languages here
+// and in your gatsby-node as well (see gatsby-node.js)
 
 export const defaultLang: LangCode = 'en';
 
-export const supportedLangs: Record<LangCode, LangSettings> = {
+export const supportedLangs: SupportedLangs = {
   ['en']: {
     urlPrefix: '',
-    humanName: 'English',
+    humanName: '🇬🇧 English',
+    shortName: '🇬🇧 EN'
   },
   ['fr']: {
     urlPrefix: 'fr',
-    humanName: 'Français',
+    humanName: '🇫🇷 Français',
+    shortName: '🇫🇷 FR'
   },
 };
