@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { HeadProps, Link, graphql } from 'gatsby'
 import LayoutRoot from '../bits/Rev/LayoutRoot/LayoutRoot'
-import SEO from '../bits/SEO/SEO'
 import { educationPageStrings } from '../locales/strings'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled'
 import FlashOnRoundedIcon from '@mui/icons-material/FlashOnRounded'
@@ -10,6 +9,7 @@ import SchoolIcon from '@mui/icons-material/School'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
 import TouchAppOutlinedIcon from '@mui/icons-material/TouchAppOutlined'
 import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined'
+import { SEO } from '../components'
 
 import {
   responsiveContainerCSS,
@@ -30,6 +30,7 @@ import {
 import { CLIENTS_LOGOS } from '../logos'
 import AppStoreBadges from '../bits/Rev/AppStoreBadges/AppStoreBadges'
 import { useTheme } from '@mui/material'
+import { PageContext } from '../types'
 
 const MAILCHIMP_URL =
   'https://reveality.us5.list-manage.com/subscribe/post?u=8b4e477d425a1fcb90d90a287&amp;id=7331d8e0bb'
@@ -42,7 +43,6 @@ export default function Index({ data, pageContext: { langCode }, location }) {
 
   return (
     <LayoutRoot language={langCode} location={{ ...location }}>
-      <SEO title={'Education'} langCode={langCode} useRobotoFont={true} />
       <div
         css={{
           ...responsiveContainerCSS,
@@ -224,6 +224,12 @@ export default function Index({ data, pageContext: { langCode }, location }) {
       </div>
     </LayoutRoot>
   )
+}
+
+export function Head({
+  pageContext: { langCode },
+}: HeadProps<Queries.IndexQueryQuery, PageContext>) {
+  return <SEO title="Education" langCode={langCode} />
 }
 
 export const indexPageQuery = graphql`
