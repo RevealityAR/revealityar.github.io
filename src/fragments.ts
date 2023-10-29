@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 export const gatImage = graphql`
   fragment gatImage on File {
     childImageSharp {
-      gatsbyImageData(layout: FIXED, maxHeight: 1400)
+      gatsbyImageData(layout: FIXED, height: 1400)
     }
   }
 `

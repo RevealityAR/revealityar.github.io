@@ -2,6 +2,7 @@
 const siteManifest = require('./site-manifest.js')
 
 module.exports = {
+  graphqlTypegen: true,
   siteMetadata: {
     siteName: siteManifest.name,
     title: siteManifest.title,
