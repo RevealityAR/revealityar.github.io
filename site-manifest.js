@@ -33,7 +33,7 @@
 // export const siteManifest: SiteManifest = {
 module.exports = {
   name: `Reveality`,
-  title: `Reveality Website`,
+  title: `· Reveality`,
   author: 'Reveality',
   authorMail: 'contact@reveality.io',
   // %s for pageName

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, PageProps, HeadProps, useStaticQuery } from 'gatsby'
 import LayoutRoot from '../bits/Rev/LayoutRoot/LayoutRoot'
-import SEO from '../bits/SEO/SEO'
 import Hero from '../bits/Rev/Hero/Hero'
 import { indexPageStrings } from '../locales/strings'
 import AppStoreBadges from './../bits/Rev/AppStoreBadges/AppStoreBadges'
@@ -25,6 +24,8 @@ import { StringList } from '../bits/types'
 import { useTheme } from '@mui/material'
 import AdvancedUsers from '../bits/Rev/AdvancedUsers/AdvancedUsers'
 import AboutUs from '../bits/Rev/AboutUs/AboutUs'
+import { SEO } from '../components'
+import { PageContext } from '../types'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
 //   return {
@@ -48,7 +49,11 @@ const strings: StringList = {
     ['fr']: 'Fait avec Reveality',
   },
 }
-export default function Index({ data, pageContext: { langCode }, location }) {
+export default function Index({
+  data,
+  pageContext: { langCode },
+  location,
+}: PageProps<Queries.IndexQueryQuery, PageContext>) {
   const theme = useTheme()
   const posts = data.allMdx.edges
   // const LOCAL = indexPageStrings[langCode];
@@ -58,7 +63,6 @@ export default function Index({ data, pageContext: { langCode }, location }) {
 
   return (
     <LayoutRoot language={langCode} location={{ ...location }}>
-      <SEO title={'Home'} langCode={langCode} useRobotoFont={true} />
       <Hero langCode={langCode} />
 
       <div css={mainViewCSS}>
@@ -73,6 +77,12 @@ export default function Index({ data, pageContext: { langCode }, location }) {
       <AdvancedUsers langCode={langCode} />
     </LayoutRoot>
   )
+}
+
+export function Head({
+  pageContext: { langCode },
+}: HeadProps<Queries.IndexQueryQuery, PageContext>) {
+  return <SEO title="Home" langCode={langCode} />
 }
 
 export const portfolioPostsQuery = graphql`
