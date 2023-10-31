@@ -28,6 +28,8 @@ module.exports = {
       tiktok: siteManifest.socialLinks.tiktok,
     },
   },
+  jsxRuntime: 'automatic',
+  jsxImportSource: '@emotion/react',
 
   plugins: [
     'gatsby-plugin-extract-image-colors',

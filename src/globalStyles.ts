@@ -19,3 +19,9 @@ export const bodyCSS = (theme: Theme): CSSObject => {
     fontFamily: `'Roboto', sans-serif`,
   }
 }
+
+export function globalStyle(theme: Theme): CSSObject {
+  return {
+    body: bodyCSS(theme),
+  }
+}
