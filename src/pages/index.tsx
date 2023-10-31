@@ -23,8 +23,7 @@ import PostGrid from '../bits/Rev/PostGridFlat/PostGridFlat'
 import { StringList } from '../bits/types'
 import { useTheme } from '@mui/material'
 import AdvancedUsers from '../bits/Rev/AdvancedUsers/AdvancedUsers'
-import AboutUs from '../bits/Rev/AboutUs/AboutUs'
-import { SEO } from '../components'
+import { SEO, AboutUs } from '../components'
 import { PageContext } from '../types'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {

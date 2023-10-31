@@ -1,4 +1,3 @@
-import React from 'react'
 import { SEO as SEOBits } from '@reveality/bits'
 import { useSiteMetadata } from '../hooks'
 import { PageContext } from '../types'
@@ -20,7 +19,6 @@ export default function SEO({
       author={siteMetadata?.author ?? undefined}
       langCode={langCode}
       useRobotoFont
-      favicon={siteMetadata?.favicon ?? undefined}
       siteName={siteMetadata?.siteName ?? undefined}
     />
   )
