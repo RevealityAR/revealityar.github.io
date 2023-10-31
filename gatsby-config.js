@@ -126,5 +126,19 @@ module.exports = {
     },
 
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: 'locales',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-copy-files',
+      options: {
+        source: `${__dirname}/src/locales`,
+        destination: `/locales`,
+      },
+    },
   ],
 }

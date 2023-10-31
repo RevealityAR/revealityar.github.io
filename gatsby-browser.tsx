@@ -1,4 +1,5 @@
 import 'normalize.css'
+import './src/i18n'
 import { UmbrellaProvider } from '@reveality/bits'
 
 import { theme } from './src/theme'

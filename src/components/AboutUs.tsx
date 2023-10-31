@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   AboutUs as AboutUsBits,
   Punchline,
@@ -6,6 +5,7 @@ import {
   ContactInfo,
   StringList,
 } from '@reveality/bits'
+import { useTranslation, Trans } from 'react-i18next'
 import { useSiteMetadata } from '../hooks'
 import { PageContext } from '../types'
 
@@ -14,72 +14,24 @@ import { CSSObject } from '@emotion/react'
 const boldCSS: CSSObject = {
   color: '#2771cc',
 }
-const boldLightCSS: CSSObject = {
-  color: '#649DE5',
-}
 
-export const strings: StringList = {
-  punchline: {
-    ['en']: <>Let's create together</>,
-    ['fr']: <>Créons ensemble</>,
-  },
-
-  subline: {
-    ['en']: (
-      <>
-        We’re a team of digital artists, mediators and engineers in a mission to
-        unlock the creative potential of Augmented Reality.
-      </>
-    ),
-    ['fr']: (
-      <>
-        Nous sommes une équipe d’artistes numériques, médiat.eur.ice.s et
-        ingénieurs en mission pour débloquer le potentiel créatif de la Réalité
-        Augmentée.
-      </>
-    ),
-  },
-
-  features: {
-    ['en']: (
-      <>
-        We organise <strong css={boldCSS}>workshops</strong> (for all ages),{' '}
-        <strong css={boldCSS}>masterclasses</strong> (for pros) and{' '}
-        <strong css={boldCSS}>co-create experiences</strong> with artists and
-        institutions.
-      </>
-    ),
-    ['fr']: (
-      <>
-        Nous animons des <strong css={boldCSS}>ateliers</strong> (pour tous les
-        âges), des <strong css={boldCSS}>formations</strong> (pour les plus
-        grands) et <strong css={boldCSS}>co-produisons</strong> des expériences
-        avec artistes et institutions.
-      </>
-    ),
-  },
-
-  contactUs: {
-    ['en']: `I'm interested`,
-    ['fr']: `Ça m'intéresse`,
-  },
-}
-
-export default function AboutUs({
-  langCode,
-}: {
-  langCode: PageContext['langCode']
-}) {
+export default function AboutUs() {
+  const { t } = useTranslation()
   const siteMetadata = useSiteMetadata()
   return (
     <AboutUsBits>
       <>
-        <Punchline>{strings['punchline'][langCode]}</Punchline>
-        <PunchlineParagraph>{strings['subline'][langCode]}</PunchlineParagraph>
-        <PunchlineParagraph>{strings['features'][langCode]}</PunchlineParagraph>
+        <Punchline>{t('aboutUs.punchline')}</Punchline>
+        <PunchlineParagraph>{t('aboutUs.subline')}</PunchlineParagraph>
+        <PunchlineParagraph>
+          <Trans
+            i18nKey="aboutUs.features"
+            components={{ bold: <strong css={boldCSS} /> }}
+          />
+        </PunchlineParagraph>
 
         <ContactInfo contactEmail={siteMetadata?.author ?? ''}>
-          {strings['contactUs'][langCode]}
+          {t('aboutUs.contactUs')}
         </ContactInfo>
       </>
     </AboutUsBits>
