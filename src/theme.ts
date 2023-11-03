@@ -17,7 +17,7 @@ export const theme = createTheme({
       paper: 'transparent',
     },
     action: {
-      hover: 'rgba(0,0,0,0.56)',
+      hover: '#649DE5',
     },
 
     // FOR TEXT ? #34393A

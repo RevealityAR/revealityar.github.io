@@ -10,8 +10,20 @@ export function useSiteMetadata() {
           url
           image
           author
+          authorMail
           siteName
           favicon
+          socialLinks {
+            twitter
+            facebook
+            linkedin
+            instagram
+            vimeo
+            youtube
+            github
+            soundcloud
+            tiktok
+          }
         }
       }
     }

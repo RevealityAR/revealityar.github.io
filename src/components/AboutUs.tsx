@@ -3,19 +3,14 @@ import {
   Punchline,
   PunchlineParagraph,
   ContactInfo,
-  StringList,
 } from '@reveality/bits'
 import { useTranslation, Trans } from 'react-i18next'
 import { useSiteMetadata } from '../hooks'
-import { PageContext } from '../types'
 
-import { CSSObject } from '@emotion/react'
-
-const boldCSS: CSSObject = {
-  color: '#2771cc',
-}
+import { useTheme } from '@emotion/react'
 
 export default function AboutUs() {
+  const theme = useTheme()
   const { t } = useTranslation()
   const siteMetadata = useSiteMetadata()
   return (
@@ -26,11 +21,13 @@ export default function AboutUs() {
         <PunchlineParagraph>
           <Trans
             i18nKey="aboutUs.features"
-            components={{ bold: <strong css={boldCSS} /> }}
+            components={{
+              bold: <strong css={{ color: theme.palette.primary.main }} />,
+            }}
           />
         </PunchlineParagraph>
 
-        <ContactInfo contactEmail={siteMetadata?.author ?? ''}>
+        <ContactInfo contactEmail={siteMetadata?.authorMail ?? ''}>
           {t('aboutUs.contactUs')}
         </ContactInfo>
       </>

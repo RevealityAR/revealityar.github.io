@@ -1,6 +1,4 @@
-import React from 'react'
 import { HeadProps, Link, graphql } from 'gatsby'
-import LayoutRoot from '../bits/Rev/LayoutRoot/LayoutRoot'
 import { educationPageStrings } from '../locales/strings'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled'
 import FlashOnRoundedIcon from '@mui/icons-material/FlashOnRounded'
@@ -42,7 +40,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
   const localesOptions = { year: 'numeric', month: 'long', day: 'numeric' }
 
   return (
-    <LayoutRoot language={langCode} location={{ ...location }}>
+    <>
       <div
         css={{
           ...responsiveContainerCSS,
@@ -222,7 +220,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
           </Link>
         </div>
       </div>
-    </LayoutRoot>
+    </>
   )
 }
 

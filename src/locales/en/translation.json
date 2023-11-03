@@ -4,5 +4,13 @@
     "subline": "We’re a team of digital artists, mediators and engineers in a mission to unlock the creative potential of Augmented Reality.",
     "features": "We organise <bold>workshops</bold> (for all ages), <bold>masterclasses</bold> (for pros) and <bold>co-create experiences</bold> with artists and institutions.",
     "contactUs": "I'm interested"
+  },
+  "footer": {
+    "contact": "Contact",
+    "followUs": "Stay in touch",
+    "newsLetter": {
+      "title": "Join our newsletter",
+      "label": "Enter your email address"
+    }
   }
 }

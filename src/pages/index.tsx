@@ -1,5 +1,4 @@
 import { graphql, PageProps, HeadProps, useStaticQuery } from 'gatsby'
-import LayoutRoot from '../bits/Rev/LayoutRoot/LayoutRoot'
 import Hero from '../bits/Rev/Hero/Hero'
 import Partners from '../bits/Rev/Partners/Partners'
 import { punchlineCSS, mainViewCSS } from '../styles'
@@ -46,7 +45,7 @@ export default function Index({
   )
 
   return (
-    <LayoutRoot language={langCode} location={{ ...location }}>
+    <>
       <Hero langCode={langCode} />
 
       <div css={mainViewCSS}>
@@ -59,7 +58,7 @@ export default function Index({
       <Partners langCode={langCode} />
 
       <AdvancedUsers langCode={langCode} />
-    </LayoutRoot>
+    </>
   )
 }
 
