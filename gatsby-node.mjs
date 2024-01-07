@@ -32,14 +32,6 @@ const LAYOUTS = {
   article: 'article',
 }
 
-const path = require('path')
-const layoutPage = path.resolve(
-  `./src/bits/Rev/LayoutMdxPage/LayoutMdxPage.tsx`
-)
-const layoutArticle = path.resolve(
-  `./src/bits/Rev/LayoutMdxArticle/LayoutMdxArticle.tsx`
-)
-
 /**
  * Max's i18n implementation for gatsby (mdx + normal pages)
  * @param {*} node
@@ -112,7 +104,7 @@ const nextPostLooker = (node, index, mdxArticles) => {
 /**
  * Add custom types to markdown
  */
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   const { createTypes, printTypeDefinitions } = actions
 
   createTypes(`
@@ -143,7 +135,7 @@ exports.createSchemaCustomization = ({ actions }) => {
  * Fired after page creation
  * used to detect JS pages and create their languages variants
  */
-exports.onCreatePage = ({ page, actions }) => {
+export const onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
   // -- Filter out any pages created by mdx plugin with the default layout
@@ -195,7 +187,7 @@ exports.onCreatePage = ({ page, actions }) => {
 /**
  * Create our own pages
  */
-exports.createPages = ({ actions, graphql }) => {
+export const createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   // Fetch data from Graphql
@@ -256,7 +248,7 @@ exports.createPages = ({ actions, graphql }) => {
       try {
         createPage({
           path: `${urlPrefix}${node.frontmatter.path}`,
-          component: `${layoutArticle}?__contentFilePath=${node.internal.contentFilePath}`,
+          component: node.internal.contentFilePath,
           context: {
             markdownPath,
             previousPost,
@@ -274,14 +266,14 @@ exports.createPages = ({ actions, graphql }) => {
       const markdownPath = node.frontmatter.path
       createPage({
         path: `${urlPrefix}${node.frontmatter.path}`,
-        component: `${layoutPage}?__contentFilePath=${node.internal.contentFilePath}`,
+        component: node.internal.contentFilePath,
         context: { markdownPath, langCode: node.frontmatter.language }, // additional data can be passed via context
       })
     })
   })
 }
 
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+export const onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {

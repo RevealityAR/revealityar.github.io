@@ -1,7 +1,11 @@
 // import type { GatsbyConfig } from "gatsby";
-const siteManifest = require('./site-manifest.js')
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import siteManifest from './site-manifest.mjs'
 
-module.exports = {
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+export default {
   graphqlTypegen: true,
   siteMetadata: {
     siteName: siteManifest.name,
@@ -82,7 +86,6 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     `gatsby-plugin-catch-links`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
