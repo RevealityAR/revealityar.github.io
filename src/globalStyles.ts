@@ -5,10 +5,10 @@ import grain from './pages/gggrain.svg'
 
 export const glassCSS: CSSObject = {
     background: 'rgba(255, 255, 255, 0.12)',
-    borderRadius: '16px',
+    borderRadius: '4px',
     boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-    backdropFilter: 'blur(40px)',
-    webkitBackdropFilter: 'blur(40px)',
+    backdropFilter: 'blur(20px)',
+    webkitBackdropFilter: 'blur(20px)',
     border: '1px solid rgba(255, 255, 255, 0.04)'
 }
 

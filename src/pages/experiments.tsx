@@ -1,7 +1,7 @@
 import React from 'react'
 import { notFoundPage } from '../locales/strings'
 import LayoutRoot from '../bits/Rev/LayoutRoot/LayoutRoot'
-import { circleCSS, backgroundCSS, bokehCSS, glassContainerCSS , contentCSS} from './experimentsStyles'
+import { circleCSS, backgroundCSS, bokehCSS, glassContainerCSS , contentCSS, sectionCSS} from './experimentsStyles'
 export default function ExperimentsPage({
   data,
   pageContext: { langCode },
@@ -10,18 +10,8 @@ export default function ExperimentsPage({
   const LOCAL = notFoundPage[langCode]
   return (
     <LayoutRoot language={langCode} location={location} skipLanguageAutoRedirect={true}>
-  
 
-      <div
-        css={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingTop: '4rem',
-        }}
-      >
-
+      <h1>HOOOOO</h1>
 <svg 
   css={bokehCSS}
   viewBox="0 0 10 10" 
@@ -33,30 +23,17 @@ export default function ExperimentsPage({
   <circle cx="45%" cy="50%" r="15%"  css={circleCSS} />
   <circle cx="85%" cy="35%" r="30%" css={circleCSS} />
   <circle cx="60%" cy="85%" r="20%"  css={circleCSS} />
-  <circle cx="45%" cy="50%" r="30%"  css={circleCSS} />
+  {/* <circle cx="45%" cy="50%" r="30%"  css={circleCSS} />
   <circle cx="35%" cy="25%" r="20%"  css={circleCSS} />
   <circle cx="90%" cy="-25%" r="35%" css={circleCSS} />
   <circle cx="-15%" cy="30%" r="30%" css={circleCSS} />
-  <circle cx="65%" cy="85%" r="55%"  css={circleCSS} />
+  <circle cx="65%" cy="85%" r="55%"  css={circleCSS} /> */}
   <circle cx="45%" cy="50%" r="20%"  css={circleCSS} />
 
 </svg>
 
+  <div>coucou</div>
 
-        <div css={contentCSS}>
-
-        <h1>Experiments</h1>
-        <div css={
-           backgroundCSS
-        }>
-        </div>
-       
-
-
-
-
-        </div>
-      </div>
     </LayoutRoot>
   )
 }
