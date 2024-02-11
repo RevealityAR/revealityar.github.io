@@ -38,18 +38,7 @@ export const contentCSS: CSSObject = {
     mixBlendMode: 'normal'
 };
 
-export const glassContainerCSS: CSSObject = {
-    width: '400px',
-    height: '400px',
-    margin: '5rem',
-  /* From https://css.glass */
-background: 'rgba(255, 255, 255, 0.12)',
-borderRadius: '16px',
-boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-backdropFilter: 'blur(40px)',
-webkitBackdropFilter: 'blur(40px)',
-border: '1px solid rgba(255, 255, 255, 0.04)'
-};
+
 
 export const bokehCSS: CSSObject = {
   height: '100%',
