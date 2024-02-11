@@ -1,7 +1,11 @@
 // import type { GatsbyConfig } from "gatsby";
-const siteManifest = require('./site-manifest.js')
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import siteManifest from './site-manifest.mjs'
 
-module.exports = {
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+export default {
   graphqlTypegen: true,
   siteMetadata: {
     siteName: siteManifest.name,
@@ -28,6 +32,8 @@ module.exports = {
       tiktok: siteManifest.socialLinks.tiktok,
     },
   },
+  jsxRuntime: 'automatic',
+  jsxImportSource: '@emotion/react',
 
   plugins: [
     'gatsby-plugin-extract-image-colors',
@@ -80,7 +86,6 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     `gatsby-plugin-catch-links`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -124,5 +129,19 @@ module.exports = {
     },
 
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: 'locales',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-copy-files',
+      options: {
+        source: `${__dirname}/src/locales`,
+        destination: `/locales`,
+      },
+    },
   ],
 }

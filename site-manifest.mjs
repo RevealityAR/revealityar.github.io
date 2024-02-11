@@ -31,7 +31,7 @@
 // };
 
 // export const siteManifest: SiteManifest = {
-module.exports = {
+export default {
   name: `Reveality`,
   title: `· Reveality`,
   author: 'Reveality',

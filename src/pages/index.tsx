@@ -1,30 +1,13 @@
-import React, { useState } from 'react'
-import { Link, graphql, PageProps, HeadProps, useStaticQuery } from 'gatsby'
-import LayoutRoot from '../bits/Rev/LayoutRoot/LayoutRoot'
+import { graphql, PageProps, HeadProps, useStaticQuery } from 'gatsby'
 import Hero from '../bits/Rev/Hero/Hero'
-import { indexPageStrings } from '../locales/strings'
-import AppStoreBadges from './../bits/Rev/AppStoreBadges/AppStoreBadges'
 import Partners from '../bits/Rev/Partners/Partners'
-import { PARTNERS_LOGOS, CLIENTS_LOGOS } from '../logos'
-import {
-  responsiveContainerCSS,
-  responsiveContainerInsideCSS,
-  joinBetaCallCSS,
-  punchlineCSS,
-  clientsLogoGridCSS,
-  clientLogoCSS,
-  imageBackgroundCSS,
-  mainViewCSS,
-  iframeVideoContainerCSS,
-  iframeCSS,
-} from '../styles'
+import { punchlineCSS, mainViewCSS } from '../styles'
 import TheApp from '../bits/Rev/TheApp/TheApp'
 import PostGrid from '../bits/Rev/PostGridFlat/PostGridFlat'
 import { StringList } from '../bits/types'
 import { useTheme } from '@mui/material'
 import AdvancedUsers from '../bits/Rev/AdvancedUsers/AdvancedUsers'
-import AboutUs from '../bits/Rev/AboutUs/AboutUs'
-import { SEO } from '../components'
+import { SEO, AboutUs } from '../components'
 import { PageContext } from '../types'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
@@ -62,7 +45,7 @@ export default function Index({
   )
 
   return (
-    <LayoutRoot language={langCode} location={{ ...location }}>
+    <>
       <Hero langCode={langCode} />
 
       <div css={mainViewCSS}>
@@ -71,11 +54,11 @@ export default function Index({
       </div>
       <TheApp langCode={langCode} />
 
-      <AboutUs langCode={langCode} />
+      <AboutUs />
       <Partners langCode={langCode} />
 
       <AdvancedUsers langCode={langCode} />
-    </LayoutRoot>
+    </>
   )
 }
 

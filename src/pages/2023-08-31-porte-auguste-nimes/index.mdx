@@ -18,6 +18,9 @@ embeddedImagesLocal:
   - IMG_0679.jpg
 ---
 
+import { ResponsiveIframe } from '../../bits/mdx-components/ResponsiveIframe'
+import { ImageGrid } from '../../bits/mdx-components/ImageGrid'
+
 <ResponsiveIframe
   src="https://youtube.com/embed/74OepTiRQ0c"
   width="1080"
@@ -38,7 +41,7 @@ The experience was produced in a remarkably short timeframe of 6 hours (includin
 
 <br />
 
-<ImageGrid props={props.data.mdx.frontmatter.embeddedImagesLocal} />{' '}
+<ImageGrid props={props.data} />{' '}
 
 ## Partners
 
