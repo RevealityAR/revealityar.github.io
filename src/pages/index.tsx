@@ -26,6 +26,7 @@ import AdvancedUsers from '../bits/Rev/AdvancedUsers/AdvancedUsers'
 import AboutUs from '../bits/Rev/AboutUs/AboutUs'
 import { SEO } from '../components'
 import { PageContext } from '../types'
+import GlassContainer from '../components/glassContainer/glassContainer'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
 //   return {
@@ -65,6 +66,9 @@ export default function Index({
     <LayoutRoot language={langCode} location={{ ...location }}>
       <Hero langCode={langCode} />
 
+<GlassContainer/>
+<GlassContainer/>
+<GlassContainer/> 
       <div css={mainViewCSS}>
         <h2 css={punchlineCSS(theme)}> {strings['madeWith'][langCode]}</h2>
         <PostGrid posts={postsInMyLang} langCode={langCode} />
