@@ -1,5 +1,12 @@
 # My Gatsby Template
 
+## How to install
+
+`npm i --legacy-peer-deps`
+
+Legacy peer deps required at this point for some legacy gatsby dependencies.
+
+
 ## Features
 
 - MDX
