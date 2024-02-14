@@ -9,7 +9,11 @@ export default function NotFoundPage({
 }) {
   const LOCAL = notFoundPage[langCode]
   return (
-    <LayoutRoot language={langCode} location={location} skipLanguageAutoRedirect={true}>
+    <LayoutRoot
+      language={langCode}
+      location={location}
+      skipLanguageAutoRedirect={true}
+    >
       <div
         style={{
           display: 'flex',

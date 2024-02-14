@@ -389,7 +389,7 @@ export const mainViewCSS: CSSObject = {
   alignItems: 'center',
   minHeight: '90vh',
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
 }
 
 export const mainViewInsideCSS: CSSObject = {

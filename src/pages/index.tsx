@@ -67,16 +67,16 @@ export default function Index({
     <LayoutRoot language={langCode} location={{ ...location }}>
       <Hero langCode={langCode} />
 
-    <div css={mainViewCSS}>
+      <div css={mainViewCSS}>
         <h2 css={punchlineCSS(theme)}> {strings['madeWith'][langCode]}</h2>
         <PostGrid posts={postsInMyLang} langCode={langCode} />
       </div>
-      
+
       <TheApp langCode={langCode} />
 
       <AboutUs langCode={langCode} />
       <div css={mainViewCSS}>
-      <Partners langCode={langCode} />
+        <Partners langCode={langCode} />
       </div>
 
       <AdvancedUsers langCode={langCode} />

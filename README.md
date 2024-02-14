@@ -6,7 +6,6 @@
 
 Legacy peer deps required at this point for some legacy gatsby dependencies.
 
-
 ## Features
 
 - MDX
