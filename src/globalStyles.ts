@@ -4,7 +4,7 @@ import grain from './pages/gggrain.svg'
 
 export const glassCSS: CSSObject = {
   background: 'rgba(255, 255, 255, 0.12)',
-  borderRadius: '4px',
+  borderRadius: '26px',
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
   backdropFilter: 'blur(14px)',
   webkitBackdropFilter: 'blur(14px)',
@@ -22,9 +22,41 @@ export const gradientBackgroundCSS: CSSObject = {
 
   // background:`url(${grain}), url(https://previews.123rf.com/images/aquapictures/aquapictures1707/aquapictures170700381/82233619-blurry-light-on-the-water-textured-background-sunny-outdoors-seascape-bright-surface.jpg)`,
   // background: `url(${grain}), linear-gradient(to right top, #413b5a, #625676, #857393, #a891b1, #cdb1cf, #dfbfd7, #f0cee0, #ffdde9, #ffdfe0, #ffe3d5, #ffe9cc, #fff1c9)`,
-  // background:`url(${grain}), linear-gradient(to right top, #fff1c9, #ffe9cc, #ffe3d5, #ffdfe0, #ffdde9, #f7d7ed, #ebd3f2, #d9d0f7, #b7c8f1, #93c0e4, #70b7d1, #56adb8)`,
-  // background: `url(${grain}), linear-gradient(to right top, #fff1c9, #ffe9cc, #ffe3d5, #ffdfe0, #ffdde9, #fae0f2, #f4e4fa, #ede8ff, #e5efff, #dff5ff, #defbff, #e2ffff)`,
-  backgroundBlendMode: 'soft-light',
+  // background:
+  // 'linear-gradient(150deg, #ecedee, transparent 30%), linear-gradient(330deg, rgb(210, 206, 242), transparent 30%),linear-gradient(225deg, #fff0be, #fbdce7, #e2fae1, powderblue)',
+
+  // VV1
+  //   backgroundColor:'hsla(205,100%,85%,1)',
+  // backgroundImage:`url(${grain}), radial-gradient(at 2% 14%, hsla(187,100%,93%,1) 0px, transparent 50%),
+  // radial-gradient(at 5% 75%, hsla(346,10%,89%,1) 0px, transparent 50%),
+  // radial-gradient(at 35% 46%, hsla(206,100%,87%,1) 0px, transparent 50%),
+  // radial-gradient(at 22% 4%, hsla(81,0%,100%,1) 0px, transparent 50%),
+  // radial-gradient(at 20% 90%, hsla(313,100%,96%,1) 0px, transparent 50%),
+  // radial-gradient(at 29% 35%, hsla(36,89%,96%,1) 0px, transparent 50%),
+  // radial-gradient(at 93% 63%, hsla(206,87%,83%,1) 0px, transparent 50%)`,
+
+  // V2
+  backgroundColor: `hsla(41,100%,96%,1)`,
+  backgroundImage: `radial-gradient(at 2% 14%, hsla(208,86%,85%,1) 0px, transparent 50%),
+radial-gradient(at 5% 75%, hsla(289,86%,85%,0.43) 0px, transparent 50%),
+radial-gradient(at 35% 46%, hsla(206,86%,85%,1) 0px, transparent 50%),
+radial-gradient(at 22% 4%, hsla(40,86%,85%,1) 0px, transparent 50%),
+radial-gradient(at 20% 89%, hsla(360,0%,92%,1) 0px, transparent 50%),
+radial-gradient(at 29% 35%, hsla(266,100%,92%,1) 0px, transparent 50%),
+radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%), url(${grain})`,
+
+  // V3
+
+  // backgroundColor:`hsla(41,100%,96%,1)`,
+  // backgroundImage: `radial-gradient(at 2% 14%, hsla(208,100%,78%,1) 0px, transparent 50%),
+  // radial-gradient(at 5% 75%, hsla(289,100%,78%,0.43) 0px, transparent 50%),
+  // radial-gradient(at 35% 46%, hsla(206,100%,78%,1) 0px, transparent 50%),
+  // radial-gradient(at 22% 4%, hsla(40,100%,78%,1) 0px, transparent 50%),
+  // radial-gradient(at 20% 89%, hsla(360,100%,78%,1) 0px, transparent 50%),
+  // radial-gradient(at 29% 35%, hsla(266,100%,78%,1) 0px, transparent 50%),
+  // radial-gradient(at 86% 76%, hsla(206,100%,78%,0.7) 0px, transparent 50%)`
+  // backgroundBlendMode: 'soft-light',
+  // backgroundO
 }
 
 export const bodyCSS = (theme: Theme): CSSObject => {
@@ -37,7 +69,7 @@ export const bodyCSS = (theme: Theme): CSSObject => {
     outline: 0,
     padding: 0,
     backgroundColor: theme.palette.background.default,
-    color: '#3D3C38',
+    color: theme.palette.text.primary,
     fontFamily: `'Roboto', sans-serif`,
     backgroundBlendMode: 'soft-light',
   }
