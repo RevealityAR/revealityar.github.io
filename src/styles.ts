@@ -2,6 +2,7 @@ import { CSSObject } from '@emotion/react'
 import { breakpointKey, basicTransitionCSS } from './bits/styles/styles'
 import { themedACSS } from './bits/styles/styles'
 import { Theme } from '@mui/material'
+import { gradientBackgroundCSS } from './globalStyles'
 
 export const responsiveContainerCSS: CSSObject = {
   display: 'flex',
@@ -388,7 +389,7 @@ export const mainViewCSS: CSSObject = {
   alignItems: 'center',
   minHeight: '90vh',
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'column'
 }
 
 export const mainViewInsideCSS: CSSObject = {
