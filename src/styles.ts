@@ -2,7 +2,7 @@ import { CSSObject } from '@emotion/react'
 import { breakpointKey, basicTransitionCSS } from './bits/styles/styles'
 import { themedACSS } from './bits/styles/styles'
 import { Theme } from '@mui/material'
-import { gradientBackgroundCSS } from './globalStyles'
+import { glassCSS, gradientBackgroundCSS } from './globalStyles'
 
 export const responsiveContainerCSS: CSSObject = {
   display: 'flex',
@@ -49,21 +49,25 @@ export const fullSizeCSS: CSSObject = {
 
 export const punchlineCSS = (theme: Theme): CSSObject => {
   return {
-    fontSize: '2rem',
+    fontSize: '1.25rem',
     [breakpointKey('small')]: {
       fontSize: '3rem',
     },
     fontWeight: 900,
     textAlign: 'center',
     // color: '#34393A',
-    color: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.main,
+    color: 'white',
+    padding: '1.25rem',
+    borderRadius: glassCSS.borderRadius,
 
+    // ...gradientBackgroundCSS
     // backgroundImage: 'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)',
     // backgroundImage: 'linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)',
     // backgroundImage: 'linear-gradient(to top, #dfe9f3 0%, white 100%)',
     // backgroundImage: 'linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%)',
     // backgroundImage:
-    //   'linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%)',
+      // 'linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%)',
     // backgroundImage: 'linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%)',
     // backgroundImage: 'linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)',
     // backgroundImage: 'radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%)',
