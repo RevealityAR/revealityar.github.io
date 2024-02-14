@@ -26,6 +26,14 @@ export const PARTNERS_LOGOS = [
   { imageUrl: logoPartner_lincc, siteUrl: 'https://lincc.parisandco.paris/' },
 ]
 
+export const PARTNERS_LOGOS_V2 = [
+  { imageUrl: './../../../res/logoPartner_lincc.png', siteUrl: 'https://www.iledefrance.fr' },
+  // { imageUrl: './../../../res/logoPartner_lincc.png', siteUrl: 'https://stationf.co/' },
+  // { imageUrl:'./../../../res/logoPartner_lincc.png', siteUrl: 'https://www.theschoolab.com/' },
+  // { imageUrl: './../../../res/logoPartner_lincc.png', siteUrl: 'https://polepixel.fr/' },
+  { imageUrl: './../../../res/logoPartner_lincc.png', siteUrl: 'https://lincc.parisandco.paris/' },
+]
+
 export const ADVANCED_LOGOS = [
   { imageUrl: logoAdvanced_unity, siteUrl: 'https://reveality.io/' },
 ]

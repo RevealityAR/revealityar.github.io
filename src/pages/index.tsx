@@ -75,7 +75,9 @@ export default function Index({
       <TheApp langCode={langCode} />
 
       <AboutUs langCode={langCode} />
+      <div css={mainViewCSS}>
       <Partners langCode={langCode} />
+      </div>
 
       <AdvancedUsers langCode={langCode} />
     </LayoutRoot>
