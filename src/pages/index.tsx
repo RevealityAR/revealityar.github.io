@@ -28,6 +28,7 @@ import { SEO } from '../components'
 import { PageContext } from '../types'
 import GlassContainer from '../components/glassContainer/glassContainer'
 import Bubble from '../components/bubble/Bubble'
+import Clients from '../bits/Rev/Partners/Clients'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
 //   return {
@@ -77,10 +78,13 @@ export default function Index({
 
       <AboutUs langCode={langCode} />
       <div css={mainViewCSS}>
-        <Partners langCode={langCode} />
+        <Clients langCode={langCode} />
       </div>
 
       <AdvancedUsers langCode={langCode} />
+      <div css={mainViewCSS}>
+        <Partners langCode={langCode} />
+      </div>
     </LayoutRoot>
   )
 }
