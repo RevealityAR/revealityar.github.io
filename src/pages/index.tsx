@@ -29,6 +29,7 @@ import { PageContext } from '../types'
 import GlassContainer from '../components/glassContainer/glassContainer'
 import Bubble from '../components/bubble/Bubble'
 import Clients from '../bits/Rev/Partners/Clients'
+import { gradientBackground2CSS } from '../globalStyles'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
 //   return {
@@ -66,25 +67,27 @@ export default function Index({
 
   return (
     <LayoutRoot language={langCode} location={{ ...location }}>
-      <Hero langCode={langCode} />
 
-      <TheApp langCode={langCode} />
-      <div css={mainViewCSS}>
+      <div id={'hero'}>
+      <Hero langCode={langCode} id={'Home'}/>
+      </div>
+      
+
+      <div id={"theApp"}> <TheApp langCode={langCode} id={'theApp'}/></div>
+     
+      <div css={{...mainViewCSS, ...gradientBackground2CSS}} id={'portfolio'}>
         <h2 css={punchlineCSS(theme)}> {strings['madeWith'][langCode]}</h2>
         <PostGrid posts={postsInMyLang} langCode={langCode} />
       </div>
 
 
-
+      <div id={'about'}>
       <AboutUs langCode={langCode} />
-      <div css={mainViewCSS}>
         <Clients langCode={langCode} />
-      </div>
-
       <AdvancedUsers langCode={langCode} />
-      <div css={mainViewCSS}>
         <Partners langCode={langCode} />
       </div>
+      
     </LayoutRoot>
   )
 }

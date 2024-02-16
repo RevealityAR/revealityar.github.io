@@ -1,3 +1,5 @@
+// this file is dead
+
 import logoClient_nat from './res/logoClient_nat.webp'
 import logoClient_cube from './res/logoClient_cube.png'
 import logoClient_saintex from './res/logoClient_saintex.png'
@@ -7,7 +9,6 @@ import logoPartner_idf from './res/logoPartner_idf.svg'
 import logoPartner_stationf from './res/logoPartner_stationf.svg'
 import logoPartner_schoolab from './res/logoPartner_schoolab.png'
 import logoPartner_polepixel from './res/logoPartner_polePixel.svg'
-import logoPartner_lincc from './res/logoPartner_lincc.png'
 import logoAdvanced_unity from './res/logo_unity.svg'
 
 export const CLIENTS_LOGOS = [
@@ -23,21 +24,6 @@ export const PARTNERS_LOGOS = [
   { imageUrl: logoPartner_stationf, siteUrl: 'https://stationf.co/' },
   { imageUrl: logoPartner_schoolab, siteUrl: 'https://www.theschoolab.com/' },
   { imageUrl: logoPartner_polepixel, siteUrl: 'https://polepixel.fr/' },
-  { imageUrl: logoPartner_lincc, siteUrl: 'https://lincc.parisandco.paris/' },
-]
-
-export const PARTNERS_LOGOS_V2 = [
-  {
-    imageUrl: './../../../res/logoPartner_lincc.png',
-    siteUrl: 'https://www.iledefrance.fr',
-  },
-  // { imageUrl: './../../../res/logoPartner_lincc.png', siteUrl: 'https://stationf.co/' },
-  // { imageUrl:'./../../../res/logoPartner_lincc.png', siteUrl: 'https://www.theschoolab.com/' },
-  // { imageUrl: './../../../res/logoPartner_lincc.png', siteUrl: 'https://polepixel.fr/' },
-  {
-    imageUrl: './../../../res/logoPartner_lincc.png',
-    siteUrl: 'https://lincc.parisandco.paris/',
-  },
 ]
 
 export const ADVANCED_LOGOS = [
