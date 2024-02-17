@@ -21,7 +21,7 @@ import {
 import TheApp from '../bits/Rev/TheApp/TheApp'
 import PostGrid from '../bits/Rev/PostGridFlat/PostGridFlat'
 import { StringList } from '../bits/types'
-import { useTheme } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import AdvancedUsers from '../bits/Rev/AdvancedUsers/AdvancedUsers'
 import AboutUs from '../bits/Rev/AboutUs/AboutUs'
 import { SEO } from '../components'
@@ -30,6 +30,7 @@ import GlassContainer from '../components/glassContainer/glassContainer'
 import Bubble from '../components/bubble/Bubble'
 import Clients from '../bits/Rev/Partners/Clients'
 import { gradientBackground2CSS } from '../globalStyles'
+import Portfolio from '../bits/Rev/Portfolio/Portfolio'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
 //   return {
@@ -47,12 +48,6 @@ import { gradientBackground2CSS } from '../globalStyles'
 //   }
 // }
 
-const strings: StringList = {
-  madeWith: {
-    ['en']: 'Made with Reveality',
-    ['fr']: 'Fait avec Reveality',
-  },
-}
 export default function Index({
   data,
   pageContext: { langCode },
@@ -76,9 +71,8 @@ export default function Index({
         <TheApp langCode={langCode} id={'theApp'} />
       </div>
 
-      <div css={{ ...mainViewCSS, ...gradientBackground2CSS }} id={'portfolio'}>
-        <h2 css={punchlineCSS(theme)}> {strings['madeWith'][langCode]}</h2>
-        <PostGrid posts={postsInMyLang} langCode={langCode} />
+      <div id={'portfolio'}>
+        <Portfolio posts={postsInMyLang} langCode={langCode} />
       </div>
 
       <div id={'about'}>

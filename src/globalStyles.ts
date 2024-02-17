@@ -63,7 +63,7 @@ radial-gradient(at 35% 46%, hsla(206,86%,85%,1) 0px, transparent 50%),
 radial-gradient(at 22% 4%, hsla(40,86%,85%,1) 0px, transparent 50%),
 radial-gradient(at 20% 89%, hsla(360,0%,92%,1) 0px, transparent 50%),
 radial-gradient(at 29% 35%, hsla(266,100%,92%,1) 0px, transparent 50%),
-radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%), url(${grain})`,
+radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%)`,
 
   // V3
 
@@ -80,12 +80,20 @@ radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%), url(${g
 }
 
 export const gradientBackground2CSS: CSSObject = {
-  backgroundColor: 'hsla(20,0%,100%,1)',
-  backgroundImage: `radial-gradient(at 2% 14%, hsla(187,100%,93%,1) 0px, transparent 50%),
-radial-gradient(at 78% 13%, hsla(206,100%,87%,1) 0px, transparent 50%),
-radial-gradient(at 47% 48%, hsla(81,100%,100%,1) 0px, transparent 50%),
-radial-gradient(at 47% 44%, hsla(36,100%,96%,1) 0px, transparent 50%),
-radial-gradient(at 93% 63%, hsla(206,100%,83%,1) 0px, transparent 50%)`,
+  //   backgroundColor: 'hsla(20,0%,100%,1)',
+  //   backgroundImage: `radial-gradient(at 2% 14%, hsla(187,100%,93%,1) 0px, transparent 50%),
+  // radial-gradient(at 78% 13%, hsla(206,100%,87%,1) 0px, transparent 50%),
+  // radial-gradient(at 47% 48%, hsla(81,100%,100%,1) 0px, transparent 50%),
+  // radial-gradient(at 47% 44%, hsla(36,100%,96%,1) 0px, transparent 50%),
+  // radial-gradient(at 93% 63%, hsla(206,100%,83%,1) 0px, transparent 50%)`,
+
+  backgroundColor: 'hsla(300,40%,98%,1)',
+  backgroundImage: `radial-gradient(at 53% 60%, hsla(206,86%,85%,0.7) 0px, transparent 50%),
+radial-gradient(at 84% 47%, hsla(40,86%,85%,0.28) 0px, transparent 50%),
+radial-gradient(at 33% 50%, hsla(289,86%,85%,0.43) 0px, transparent 50%)`,
+
+  // background-color:hsla(300,40%,98%,1);
+  // background-image:
 }
 
 export const bodyCSS = (theme: Theme): CSSObject => {
