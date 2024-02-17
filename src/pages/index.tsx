@@ -67,27 +67,26 @@ export default function Index({
 
   return (
     <LayoutRoot language={langCode} location={{ ...location }}>
-
       <div id={'hero'}>
-      <Hero langCode={langCode} id={'Home'}/>
+        <Hero langCode={langCode} id={'Home'} />
       </div>
-      
 
-      <div id={"theApp"}> <TheApp langCode={langCode} id={'theApp'}/></div>
-     
-      <div css={{...mainViewCSS, ...gradientBackground2CSS}} id={'portfolio'}>
+      <div id={'theApp'}>
+        {' '}
+        <TheApp langCode={langCode} id={'theApp'} />
+      </div>
+
+      <div css={{ ...mainViewCSS, ...gradientBackground2CSS }} id={'portfolio'}>
         <h2 css={punchlineCSS(theme)}> {strings['madeWith'][langCode]}</h2>
         <PostGrid posts={postsInMyLang} langCode={langCode} />
       </div>
 
-
       <div id={'about'}>
-      <AboutUs langCode={langCode} />
+        <AboutUs langCode={langCode} />
         <Clients langCode={langCode} />
-      <AdvancedUsers langCode={langCode} />
+        <AdvancedUsers langCode={langCode} />
         <Partners langCode={langCode} />
       </div>
-      
     </LayoutRoot>
   )
 }
