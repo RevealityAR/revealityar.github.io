@@ -8,14 +8,14 @@ export const glassStyle = (theme: Theme) => ({
     theme.palette.mode === 'light'
       ? 'rgba(255, 255, 255, 0.2)'
       : 'rgba(0, 0, 0, 0.4)',
-  backdropFilter: 'blur(24px)',
+  backdropFilter: 'blur(14px)',
   border: '1px solid',
   borderColor: 'divider',
   boxShadow:
     theme.palette.mode === 'light'
       ? `0 0 1px rgba(85, 166, 246, 0.1), 1px 1.5px 2px -1px rgba(85, 166, 246, 0.15), 4px 4px 12px -2.5px rgba(85, 166, 246, 0.15)`
       : '0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)',
-});
+})
 export const glassCSS: CSSObject = {
   // background: 'rgba(255, 255, 255, 0.12)',
   // borderRadius: '26px',
@@ -80,13 +80,13 @@ radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%), url(${g
 }
 
 export const gradientBackground2CSS: CSSObject = {
-  backgroundColor:'hsla(20,0%,100%,1)',
-backgroundImage:`radial-gradient(at 2% 14%, hsla(187,100%,93%,1) 0px, transparent 50%),
+  backgroundColor: 'hsla(20,0%,100%,1)',
+  backgroundImage: `radial-gradient(at 2% 14%, hsla(187,100%,93%,1) 0px, transparent 50%),
 radial-gradient(at 78% 13%, hsla(206,100%,87%,1) 0px, transparent 50%),
 radial-gradient(at 47% 48%, hsla(81,100%,100%,1) 0px, transparent 50%),
 radial-gradient(at 47% 44%, hsla(36,100%,96%,1) 0px, transparent 50%),
-radial-gradient(at 93% 63%, hsla(206,100%,83%,1) 0px, transparent 50%)`
-};
+radial-gradient(at 93% 63%, hsla(206,100%,83%,1) 0px, transparent 50%)`,
+}
 
 export const bodyCSS = (theme: Theme): CSSObject => {
   return {
