@@ -54,7 +54,6 @@ export default function Index({
   pageContext: { langCode },
   location,
 }: PageProps<Queries.IndexQueryQuery, PageContext>) {
-  const theme = useTheme()
   const posts = data.allMdx.edges
   // const LOCAL = indexPageStrings[langCode];
   const postsInMyLang = posts.filter(
