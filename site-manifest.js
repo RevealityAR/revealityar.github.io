@@ -64,11 +64,11 @@ module.exports = {
     name: `Reveality Website`,
     short_name: `Reveality Site`,
     background_color: `#FCF9E8`,
-    theme_color: `#649DE5`,
+    theme_color: `#5122dd`,
   },
 
   spin: {
-    color: `#649DE5`,
+    color: `#5122dd`,
   },
 
   robots: {

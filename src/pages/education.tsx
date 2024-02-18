@@ -51,6 +51,7 @@ export default function Index({ data, pageContext: { langCode }, location }) {
           minHeight: '90vh',
           display: 'flex',
           flexDirection: 'column',
+          paddingTop: '8rem',
         }}
       >
         <h1

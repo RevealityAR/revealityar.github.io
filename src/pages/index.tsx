@@ -31,6 +31,7 @@ import Bubble from '../components/bubble/Bubble'
 import Clients from '../bits/Rev/Partners/Clients'
 import { gradientBackground2CSS } from '../globalStyles'
 import Portfolio from '../bits/Rev/Portfolio/Portfolio'
+import Ateliers from '../bits/Rev/Ateliers/Ateliers'
 
 // const moreProjectsCSS = (theme: Theme): CSSObject => {
 //   return {
@@ -74,6 +75,7 @@ export default function Index({
       <div id={'portfolio'}>
         <Portfolio posts={postsInMyLang} langCode={langCode} />
       </div>
+      <div id={'ateliers'}>{/* <Ateliers/> */}</div>
 
       <div id={'about'}>
         <AboutUs langCode={langCode} />
