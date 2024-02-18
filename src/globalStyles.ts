@@ -98,21 +98,21 @@ radial-gradient(at 33% 50%, hsla(289,86%,85%,0.43) 0px, transparent 50%)`,
 
 // With bottom with background color
 export const gradientBackground3CSS: CSSObject = {
-  backgroundColor:'hsla(300,40%,98%,1)',
-backgroundImage: `radial-gradient(at 12% 5%, hsla(206,86%,85%,0.7) 0px, transparent 50%),
+  backgroundColor: 'hsla(300,40%,98%,1)',
+  backgroundImage: `radial-gradient(at 12% 5%, hsla(206,86%,85%,0.7) 0px, transparent 50%),
 radial-gradient(at 54% 35%, hsla(206,86%,85%,0.7) 0px, transparent 50%),
 radial-gradient(at 82% 35%, hsla(40,86%,85%,0.44) 0px, transparent 50%),
-radial-gradient(at 0% 36%, hsla(289,86%,85%,0.3) 0px, transparent 50%)`
+radial-gradient(at 0% 36%, hsla(289,86%,85%,0.3) 0px, transparent 50%)`,
 }
 
 // With top of background color
 export const gradientBackground4CSS: CSSObject = {
-//   backgroundColor:'hsla(300,40%,98%,1)',
-// backgroundImage:`radial-gradient(at 4% 48%, hsla(208,86%,85%,1) 0px, transparent 50%),
-// radial-gradient(at 5% 75%, hsla(289,86%,85%,0.43) 0px, transparent 50%),
-// radial-gradient(at 35% 46%, hsla(206,86%,85%,1) 0px, transparent 50%),
-// radial-gradient(at 20% 89%, hsla(360,0%,92%,1) 0px, transparent 50%),
-// radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%)`
+  //   backgroundColor:'hsla(300,40%,98%,1)',
+  // backgroundImage:`radial-gradient(at 4% 48%, hsla(208,86%,85%,1) 0px, transparent 50%),
+  // radial-gradient(at 5% 75%, hsla(289,86%,85%,0.43) 0px, transparent 50%),
+  // radial-gradient(at 35% 46%, hsla(206,86%,85%,1) 0px, transparent 50%),
+  // radial-gradient(at 20% 89%, hsla(360,0%,92%,1) 0px, transparent 50%),
+  // radial-gradient(at 86% 76%, hsla(206,86%,85%,0.7) 0px, transparent 50%)`
 }
 export const bodyCSS = (theme: Theme): CSSObject => {
   return {
@@ -127,5 +127,6 @@ export const bodyCSS = (theme: Theme): CSSObject => {
     color: theme.palette.text.primary,
     fontFamily: `'Roboto', sans-serif`,
     backgroundBlendMode: 'soft-light',
+    scrollBehavior: 'smooth',
   }
 }
