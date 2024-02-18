@@ -7,6 +7,7 @@ import { glassCSS, gradientBackgroundCSS } from './globalStyles'
 export const responsiveContainerCSS: CSSObject = {
   display: 'flex',
   justifyContent: 'center',
+  // margin: '4rem'
 }
 
 export const revLinkCSS = (theme: Theme): CSSObject => {
@@ -267,14 +268,9 @@ export const subjectVideoCSS: CSSObject = {
 
 export const subjectTitleCSS = (theme: Theme): CSSObject => {
   return {
-    padding: '2rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem',
-    borderRadius: '0.4rem',
-    color: '#fbf9e8',
-    // backgroundColor: '#649de4',
+    textAlign: 'center',
     userSelect: 'none',
-    color: theme.palette.primary.main,
+    // backgroundColor: theme.palette.action.hover,
   }
 }
 
@@ -350,7 +346,10 @@ export const thirdPageContainerCSS: CSSObject = {
 
   [breakpointKey('small')]: {
     minWidth: '90%',
+    margin: '1rem',
   },
+  ...glassCSS,
+  padding: '2rem',
 }
 
 export const subtextCSS: CSSObject = {
