@@ -74,6 +74,7 @@ export default function Index({
       <div id={'portfolio'}>
         <Portfolio posts={postsInMyLang} langCode={langCode} />
       </div>
+
       <div id={'ateliers'}>{/* <Ateliers/> */}</div>
 
       <div id={'about'}>
