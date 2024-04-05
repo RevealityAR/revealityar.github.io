@@ -30,10 +30,14 @@ module.exports = {
   },
 
   plugins: [
-    'gatsby-plugin-extract-image-colors',
 
-    `gatsby-plugin-sharp`,
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -44,48 +48,23 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
-        ],
-      },
-    },
-    `gatsby-plugin-image`,
-
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `md`],
         gatsbyRemarkPlugins: [
+          `gatsby-transformer-sharp`,
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
             },
           },
+
         ],
-      },
-    },
-
-    {
-      resolve: 'gatsby-plugin-react-helmet',
-    },
-    'gatsby-plugin-offline',
-    `gatsby-plugin-catch-links`,
-
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
       },
     },
     {
@@ -100,8 +79,6 @@ module.exports = {
         icon: `src/res/favicon.png`, // This path is relative to the root of the site.
       },
     },
-
-    // TODO: disabled for updates
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -110,7 +87,7 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
-    `gatsby-plugin-sitemap`,
+
 
     // Amazing loading progress bar on top of website
     {
@@ -122,7 +99,13 @@ module.exports = {
         showSpinner: false,
       },
     },
-
+    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
+    'gatsby-plugin-offline',
+    `gatsby-plugin-catch-links`,
+    'gatsby-plugin-extract-image-colors',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
   ],
 }

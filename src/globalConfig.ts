@@ -25,8 +25,8 @@ export const footerConfig: FooterConfig = {
       { path: '/', name: 'HOME' },
       { path: '/education', name: 'EDUCATION' },
       { path: '/privacy', name: 'PRIVACY' },
-      // { path: '/booking', name: 'BOOKING' },
       { path: '/jobs', name: 'JOBS' },
+      { path: '/presskit', name: 'PRESS KIT' },
     ],
   },
 
@@ -35,9 +35,8 @@ export const footerConfig: FooterConfig = {
       { path: '/fr', name: 'ACCUEIL' },
       { path: '/fr/education', name: 'EDUCATION' },
       { path: '/fr/privacy', name: 'PRIVACY' },
-      // { path: '/fr/gallery', name: 'GALERIE' },
-      // { path: '/fr/booking', name: 'RESERVER' },
       { path: '/fr/jobs', name: 'JOBS' },
+      { path: '/presskit', name: 'KIT PRESSE' },
     ],
   },
 }
