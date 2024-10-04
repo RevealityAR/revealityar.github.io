@@ -57,7 +57,7 @@ module.exports = {
     youtube: '',
     soundcloud: '',
     linkedin: '//linkedin.com/company/revy-app/',
-    tiktok: '//tiktok.com/@revealityar',
+    tiktok: '//tiktok.com/@revy_theapp',
   },
 
   pwa: {
