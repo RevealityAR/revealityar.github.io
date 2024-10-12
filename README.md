@@ -6,6 +6,8 @@
 
 Legacy peer deps required at this point for some legacy gatsby dependencies.
 
+* Make sure to also fetch the git submodule "bits"
+
 ## Features
 
 - MDX
