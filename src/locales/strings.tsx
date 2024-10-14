@@ -242,3 +242,26 @@ export const notFoundPage = {
     subtext: `Il n'y a rien ici !`,
   },
 }
+
+
+export const subscriptionInProgressPage = {
+  en: {
+    title: `One more step!`,
+    subtext: `Please check your emails to validate your newsletter subscription`,
+  },
+  fr: {
+    title: `Encore une petite étape !`,
+    subtext: `Merci de vérifier vos emails pour valider votre inscription à la newsletter`,
+  },
+}
+
+export const subscriptionConfirmedPage = {
+  en: {
+    title: `Subscription confirmed!`,
+    subtext: `You are now subscribed to our newsletter.`,
+  },
+  fr: {
+    title: `Inscription confirmée !`,
+    subtext: `Vous êtes désormais inscrit à notre newsletter`,
+  },
+}
