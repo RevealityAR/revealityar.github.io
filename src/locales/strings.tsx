@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 import { LangCode } from './../bits/types'
 
 type ReactString = string | JSX.Element
@@ -243,7 +243,6 @@ export const notFoundPage = {
   },
 }
 
-
 export const subscriptionInProgressPage = {
   en: {
     title: `One more step!`,
@@ -264,4 +263,22 @@ export const subscriptionConfirmedPage = {
     title: `Inscription confirmée !`,
     subtext: `Vous êtes désormais inscrit à notre newsletter`,
   },
+}
+
+export const mixPage: Record<string, Record<LangCode, ReactString>> = {
+  myMix: {
+    en: 'My Mix:',
+    fr: 'Mon Mix :',
+    es: 'Mi Mix'
+  },
+  download: {
+    en: 'Download',
+    fr: 'Télécharger',
+    es: 'Descargar',
+  },
+  notFound: {
+    en: 'No Mix found...',
+    fr: 'Aucun Mix trouvé...',
+    es: 'Ninguno Mix encontró...',
+  }
 }
